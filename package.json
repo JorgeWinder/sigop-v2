@@ -1,0 +1,37 @@
+{
+  "name": "sigop-v2",
+  "version": "2.0.0",
+  "description": "Sistemas de ventas y despacho de insumos publicitarios",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeWinder/sigop-v2.git"
+  },
+  "author": "Jorge Winder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JorgeWinder/sigop-v2/issues"
+  },
+  "homepage": "https://github.com/JorgeWinder/sigop-v2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parse": "^0.1.0",
+    "chalk": "^3.0.0",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.4",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^4.0.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.3.0"
+  }
+}
