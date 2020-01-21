@@ -12,6 +12,10 @@ const routers = function(server){
         res.render('home')
     })
 
+    router.get('/ingresar', function(req, res){
+        res.render('login')
+    })
+
     // -------------------------------------------- //
 
 
