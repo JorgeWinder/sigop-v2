@@ -20,6 +20,23 @@ const routers = function(server){
         res.render('registrar-movientos-almacen')
     })
 
+    router.get('/modulo-de-pedidos-y-ventas', function(req, res){
+        res.render('modulo-de-pedidos-y-ventas', {script_name: 'modulo-de-ventas-y-pedido'})
+    })
+
+    router.get('/registrar-pedido', function(req, res){
+        res.render('registrar-pedido')
+    })
+
+    router.get('/modulo-de-almacen', function(req, res){
+        res.render('modulo-de-almacen')
+    })
+
+    router.get('/modulo-de-cobranzas', function(req, res){
+        res.render('modulo-de-cobranzas')
+    })
+
+
     // -------------------------------------------- //
 
 
