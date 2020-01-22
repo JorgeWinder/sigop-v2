@@ -16,6 +16,10 @@ const routers = function(server){
         res.render('login')
     })
 
+    router.get('/registrar-movientos-almacen', function(req, res){
+        res.render('registrar-movientos-almacen')
+    })
+
     // -------------------------------------------- //
 
 
