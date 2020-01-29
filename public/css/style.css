@@ -8,7 +8,18 @@ body {
     flex: 1 0 auto;
   }
 
-  
+/* Estilo barra de progreso */
+ 
+.progress{
+    background-color: #f3bfbf;
+} 
+
+.progress .indeterminate {
+  background-color: #ee6b6b;
+} 
+
+
+
 /* Estilo para la barra de navegacion */
 
 nav ul li a {
