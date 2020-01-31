@@ -8,12 +8,16 @@ const routers = function(server){
 
     // ---------- Renderizar diseños --------------- //
 
-    router.get('/pagina-de-inicio', function(req, res){
+    router.get('/', function(req, res){
+        res.render('login', {layout: 'acceso', script_name: 'login'})
+    })
+
+    router.get('/pagina-de-bienvenida', function(req, res){
         res.render('home')
     })
 
-    router.get('/ingresar', function(req, res){
-        res.render('login')
+    router.get('/mantenimiento-de-producto', function(req, res){
+        res.render('mantenimiento-de-producto')
     })
 
     router.get('/registrar-movientos-almacen', function(req, res){
@@ -36,7 +40,11 @@ const routers = function(server){
         res.render('modulo-de-cobranzas')
     })
 
+    router.get('/modulo-de-configuracion', function(req, res){
+        res.render('modulo-de-configuracion')
+    })
 
+    
     // -------------------------------------------- //
 
 

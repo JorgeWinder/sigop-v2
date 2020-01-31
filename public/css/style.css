@@ -59,7 +59,7 @@ nav .brand-logo span{
 }
 
 /* label focus color */
-.input-field input[type=text]:focus + label , .input-field input[type=number]:focus + label , .input-field input[type=date]:focus + label {
+.input-field input[type=text]:focus + label , .input-field input[type=number]:focus + label , .input-field input[type=date]:focus + label, .input-field input[type=password]:focus + label {
   color:  #ee6b6b !important;
 }
 
@@ -84,7 +84,7 @@ nav .brand-logo span{
 
 }
 
-.input-field input[type=text] , .input-field input[type=number] , .input-field input[type=date] {
+.input-field input[type=text] , .input-field input[type=number] , .input-field input[type=date], .input-field input[type=password] {
   /* border-top-left-radius: 40% */
   border-radius: 8px 8px 0 0;
   height: 54px;
@@ -111,23 +111,23 @@ nav .brand-logo span{
 
 
 /* label underline focus color */
-.input-field input[type=text]:focus , .input-field input[type=number]:focus , .input-field input[type=date]:focus {
+.input-field input[type=text]:focus , .input-field input[type=number]:focus , .input-field input[type=date]:focus, .input-field input[type=password]:focus {
   border-bottom: 1px solid #ee6b6b !important;
   box-shadow: 0 1px 0 0 #ee6b6b !important;
 }
 /* valid color */
-.input-field input[type=text].valid , .input-field input[type=number].valid {
+.input-field input[type=text].valid , .input-field input[type=number].valid, .input-field input[type=password].valid {
   border-bottom: 1px solid #000 !important;
   box-shadow: 0 1px 0 0 #000 !important;
 }
 
-.input-field input[type=text].valid:focus , .input-field input[type=number].valid:focus , .input-field input[type=date].valid:focus {
+.input-field input[type=text].valid:focus , .input-field input[type=number].valid:focus, .input-field input[type=password].valid:focus , .input-field input[type=date].valid:focus {
   border-bottom: 1px solid #ee6b6b !important;
   box-shadow: 0 1px 0 0 #ee6b6b !important;
 }
 
 /* invalid color */
-.input-field input[type=text].invalid , .input-field input[type=numbre].invalid {
+.input-field input[type=text].invalid , .input-field input[type=numbre].invalid, .input-field input[type=password].invalid {
   border-bottom: 1px solid #ee6b6b !important;
   box-shadow: 0 1px 0 0 #ee6b6b !important;
 }
