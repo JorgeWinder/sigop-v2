@@ -9,7 +9,7 @@ const routers = function(server){
     // ---------- Renderizar diseños --------------- //
 
     router.get('/', function(req, res){
-        res.render('login', {layout: 'acceso'})
+        res.render('login', {layout: 'acceso', script_name: 'login'})
     })
 
     router.get('/pagina-de-bienvenida', function(req, res){
@@ -40,7 +40,14 @@ const routers = function(server){
         res.render('modulo-de-cobranzas')
     })
 
+    router.get('/modulo-de-configuracion', function(req, res){
+        res.render('modulo-de-configuracion')
+    })
 
+    router.get('/mantenimiento-de-tablas', function(req, res){
+        res.render('mantenimiento-de-tablas')
+    })
+    
     // -------------------------------------------- //
 
 
