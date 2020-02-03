@@ -44,6 +44,9 @@ const routers = function(server){
         res.render('modulo-de-configuracion')
     })
 
+    router.get('/mantenimiento-de-tablas', function(req, res){
+        res.render('mantenimiento-de-tablas')
+    })
     
     // -------------------------------------------- //
 

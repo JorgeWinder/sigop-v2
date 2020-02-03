@@ -8,6 +8,13 @@ body {
     flex: 1 0 auto;
   }
 
+/* Estilo para breadcrumbs */
+
+.breadcrumb:before{
+  color: #000 !important;
+}
+
+
 /* Estilo barra de progreso */
  
 .progress{
