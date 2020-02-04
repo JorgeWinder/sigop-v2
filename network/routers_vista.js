@@ -32,6 +32,10 @@ const routers = function(server){
         res.render('registrar-pedido')
     })
 
+    router.get('/registrar-producto', function(req, res){
+        res.render('registrar-producto')
+    })
+
     router.get('/modulo-de-almacen', function(req, res){
         res.render('modulo-de-almacen')
     })

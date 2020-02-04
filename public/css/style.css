@@ -142,3 +142,9 @@ nav .brand-logo span{
 .input-field .prefix.active {
   color: #ee6b6b;
 }
+
+
+select{
+
+  border-color: #9e9e9e;
+}
