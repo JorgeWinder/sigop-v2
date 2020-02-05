@@ -1,4 +1,6 @@
 const store = require('./store')
+
+
   
 function addProducto(nombre_producto, fecha_registro){
 

@@ -1,5 +1,6 @@
 const model = require('./model')
 
+
 // Agregar producto //
 function addProducto(producto){
 

@@ -1,26 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
+
 const modelCounter = require('../counter/model')
-
-const getIdSchema = function (campo) {
-
-    return new Promise((resolver, rechazar)=>{
-
-        modelCounter.updateOne({ _id: campo},{ $inc: { seq: 1} }, function(err, numberAffected, rawResponse) {          
-            console.log(numberAffected)            
-            resolver(modelCounter.find({ _id: campo})) 
-            return modelCounter.find({ _id: campo})
-         })
-
-    })
-
-
-}
+const mongo = require('../../utils/database/mongo')
 
 let idtabla = 0
 
-getIdSchema('productoid')
+mongo.getIdSchema(modelCounter, 'productoid')
 .then((data)=>{
     console.log(data[0])
     idtabla = data[0].seq
@@ -28,6 +16,10 @@ getIdSchema('productoid')
 .catch((e)=>{
     console.log(e)
 })
+
+
+
+
 
 const mySchema = new Schema({
 
@@ -39,9 +31,6 @@ const mySchema = new Schema({
     fecha_registro: Date
 
 })
-
-
-
 
 
 
