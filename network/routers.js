@@ -2,6 +2,7 @@ const express = require('express')
 const usuario = require('../components/usuario/network')
 const auth = require('../components/auth/network')
 const trabajador = require('../components/trabajador/network')
+const producto = require('../components/producto/network')
 
 
 const routers = function(server){
@@ -9,6 +10,7 @@ const routers = function(server){
     server.use('/usuario', usuario)
     server.use('/auth', auth)
     server.use('/trabajador', trabajador)
+    server.use('/producto', producto)
     
 }
 
