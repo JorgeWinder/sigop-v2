@@ -3,30 +3,19 @@ const Schema = mongoose.Schema
 
 
 
-const modelCounter = require('../counter/model')
-const mongo = require('../../utils/database/mongo')
-
-let idtabla = 0
-
-mongo.getIdSchema(modelCounter, 'productoid')
-.then((data)=>{
-    console.log(data[0])
-    idtabla = data[0].seq
-})
-.catch((e)=>{
-    console.log(e)
-})
-
-
-
-
-
 const mySchema = new Schema({
 
     _id: {
         type: String,
-        default: idtabla
+        unique: true,
+        index: true
     },
+    familia: { type: String, ref: 'familias'},
+    origen: { type: String, ref: 'origenes'},
+    color: { type: String, ref: 'colores'},
+    adt1: { type: String, ref: 'adt1s'},
+    adt2: { type: String, ref: 'adt2s'},
+    adt3: { type: String, ref: 'adt3s'},
     nombre_producto: String,
     fecha_registro: Date
 
@@ -34,7 +23,7 @@ const mySchema = new Schema({
 
 
 
-const model = mongoose.model('producto', mySchema)
+const model = mongoose.model('productos', mySchema)
 module.exports = model
 
 // https://stackoverflow.com/questions/14199529/mongoose-find-modify-save
