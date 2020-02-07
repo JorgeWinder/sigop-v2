@@ -1,21 +1,21 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-
+require('../../components/categoria/model')
 
 const mySchema = new Schema({
 
     _id: {
-        type: String,
-        unique: true,
-        index: true
+        type: Number,
+        // unique: true,
+        // index: true
     },
-    familia: { type: String, ref: 'familias'},
+    categoria: { type: String, ref: 'categorias'},
     origen: { type: String, ref: 'origenes'},
     color: { type: String, ref: 'colores'},
-    adt1: { type: String, ref: 'adt1s'},
-    adt2: { type: String, ref: 'adt2s'},
-    adt3: { type: String, ref: 'adt3s'},
+    adt1: { type: String, ref: 'adt1'},
+    adt2: { type: Number, ref: 'adt2'},
+    adt3: { type: String, ref: 'adt3'},
     nombre_producto: String,
     fecha_registro: Date
 

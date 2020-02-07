@@ -5,12 +5,14 @@ const trabajador = require('../components/trabajador/network')
 const producto = require('../components/producto/network')
 
 
+
 const routers = function(server){
     // Cada vez que nuestro server(APP) llame a '/ruta' llamará a nuestro componente de ruta
     server.use('/usuario', usuario)
     server.use('/auth', auth)
     server.use('/trabajador', trabajador)
     server.use('/producto', producto)
+    
     
 }
 

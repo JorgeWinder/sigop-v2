@@ -13,8 +13,8 @@ async function connect(url){
     })
     console.log('[DB] Conectada con éxito a: ' +  chalk.bgWhite.black(url))
 
-    //console.log(db1.models)
-    //console.log(db1.version)
+    //console.log(db.models)
+    //console.log(db.version)
     
 }
 

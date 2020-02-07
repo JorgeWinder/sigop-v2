@@ -10,12 +10,25 @@ const passport = require('passport')
 const router = express.Router()
 
 
+router.get('/' ,function(req, res){
+
+    const filterProducto = req.query.id || null
+    
+    controller.listProducto(filterProducto)
+        .then((data)=>{
+            response.success(req, res, data, 200)
+        })
+        .catch((e)=>{
+            response.error(req, res, 'Error interno', 500, e)
+        })
+
+   
+})
+
+
 router.post('/', function(req, res){
 
-    //res.send(req.body)
-
-
-    controller.addProducto(req.body.nombre)
+    controller.addProducto(req.body)
     .then((data)=>{
         response.success(req, res, data, 201)
     })
@@ -24,5 +37,18 @@ router.post('/', function(req, res){
     })
 
 })
+
+router.patch('/:id', function(req, res){
+
+    controller.updateProducto(req.params.id, req.body)
+    .then((data)=>{
+        response.success(req, res, data, 200)
+    })
+    .catch((e)=>{
+        response.error(req, res, 'Error interno', 500, e)
+    })
+
+})
+
 
 module.exports = router
