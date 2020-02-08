@@ -8,6 +8,7 @@ const socket = require('./socket')
 const cors = require('cors')
 const db = require('./db')
 
+
 const router = require('./network/routers')
 const router_vista = require('./network/routers_vista')
 const config = require('./config').config
