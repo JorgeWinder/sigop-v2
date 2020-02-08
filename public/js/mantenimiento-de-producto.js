@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async function(){
 
         async function listDatosProducto(tabla){
 
-          const { body: lista } = await getData('http://localhost:3000/' + tabla)
+          const { body: lista } = await getData('./' + tabla)
 
           lista.forEach(element => {
             document.querySelector(`#${tabla}`).innerHTML = document.querySelector(`#${tabla}`).innerHTML + `<option value="${element._id}">${element.nombre}</option>`
@@ -58,17 +58,17 @@ document.addEventListener('DOMContentLoaded', async function(){
             //document.querySelector("#nombre_producto").value = document.querySelector("#categoria"). //+ document.querySelector("#origen").value + document.querySelector("#color").value 
             
 
-            const adt1 = document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue
-            const adt2 = document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue
-            const adt3 = document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue
+            const adt1 = document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': ' ' + document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue
+            const adt2 = document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': ' ' + document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue
+            const adt3 = document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': ' ' + document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue
 
             document.querySelector("#nombre_producto").value = document.querySelector("#categoria").selectedOptions[0].childNodes[0].nodeValue + " " 
                 + document.querySelector("#origen").selectedOptions[0].childNodes[0].nodeValue + " "             
-                + document.querySelector("#color").selectedOptions[0].childNodes[0].nodeValue +  " " 
-                + adt1 + " "
-                + adt2 + " "
-                + adt3 + " "
-                + document.querySelector("#medidas").value.toUpperCase() 
+                + document.querySelector("#color").selectedOptions[0].childNodes[0].nodeValue 
+                + adt1 
+                + adt2 
+                + adt3 
+                + " " + document.querySelector("#medidas").value.toUpperCase() 
             
                 document.querySelector("#nombre_producto").focus()
                 document.querySelector("#medidas").focus()
