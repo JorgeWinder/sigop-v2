@@ -6,7 +6,8 @@ const mySchema = new Schema({
     nombre: String,
 })
 
-const model = mongoose.model('categorias', mySchema)
+const model = mongoose.model('colores', mySchema)
+
 
 
 module.exports = model
