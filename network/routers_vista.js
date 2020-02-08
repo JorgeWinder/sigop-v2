@@ -17,7 +17,7 @@ const routers = function(server){
     })
 
     router.get('/mantenimiento-de-producto', function(req, res){
-        res.render('mantenimiento-de-producto')
+        res.render('mantenimiento-de-producto', {script_name: 'registrar-producto'})
     })
 
     router.get('/registrar-movientos-almacen', function(req, res){
@@ -33,7 +33,7 @@ const routers = function(server){
     })
 
     router.get('/registrar-producto', function(req, res){
-        res.render('registrar-producto')
+        res.render('registrar-producto', {script_name: 'registrar-producto'})
     })
 
     router.get('/modulo-de-almacen', function(req, res){

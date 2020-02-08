@@ -12,21 +12,92 @@
             <div class='row'>
 
                 <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="empresa" name="empresa" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione familia</option>
-                        <option value="" selected="true">ABS</option>
-                        <option value="" selected="true">ACERO</option>
+                    <select id="categoria" name="categoria" class="browser-default">
+                        <option value="" disabled="" selected="true">Seleccione categoría</option>
+                        <option value="">DISPLAY</option>
+                        <option value="">ABS</option>
+                        <option value="">ACERO</option>
                     </select>
-                    <label style="padding-top: 5px;">Familia</label>
+                    <label style="padding-top: 5px;">Categoría</label>
                 </div>
 
                 <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="empresa" name="empresa" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione familia</option>
-                        <option value="" selected="true">ABS</option>
-                        <option value="" selected="true">ACERO</option>
+                    <select id="origen" name="origen" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione origen</option>
+                        <option value="">NACIONAL</option>
+                        <option value="">IMPORTADO</option>
+                        <option value="">INDEFINIDO</option>
                     </select>
-                    <label style="padding-top: 5px;">Familia</label>
+                    <label style="padding-top: 5px;">Origen</label>
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="color" name="color" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione color</option>
+                        <option value="">PLATEADO</option>
+                        <option value="">BLANCO</option>
+                        <option value="">AMARILLO</option>
+                    </select>
+                    <label style="padding-top: 5px;">Color</label>                    
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="adt1" name="adt1" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione aditivo</option>
+                        <option value="">SIN ADITIVO</option>
+                        <option value="">ACERADO CON NEGRO</option>
+                        <option value="">ESPEJO CON NEGRO</option>
+                    </select>
+                    <label style="padding-top: 5px;">Aditivo 1</label>                    
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="adt2" name="adt2" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione aditivo</option>
+                        <option value="">SIN ADITIVO</option>
+                        <option value="">A</option>
+                        <option value="">AA</option>
+                        <option value="">ACRILICO</option>
+                    </select>
+                    <label style="padding-top: 5px;">Aditivo 2</label>                    
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="adt3" name="adt3" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione aditivo 3</option>
+                        <option value="">SIN ADITIVO</option>
+                        <option value="">PREMIUN</option>
+                        <option value="">ESTANDAR</option>
+                    </select>
+                    <label style="padding-top: 5px;">Aditivo 3</label>                    
+                </div>
+
+                <div class='input-field col s12 l3'>
+                    <input type="text" id="medidas" name="medidas" value="">
+                    <label for="medidas">Descripción de medidas</label>
+                </div>
+
+                <div class='input-field col s12 l9'>
+                    <input type="text" id="nombre_producto" name="nombre_producto" value="" readonly>
+                    <label for="cliente">Nombre de producto</label>
+                    <input type="hidden" name="idProducto" id='idProducto'>
+                </div>
+
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="idPedido" name="idPedido" value="0.00">
+                    <label for="idPedido">Precio mínimo</label>
+                </div>
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="idPedido" name="idPedido" value="0.00">
+                    <label for="idPedido">Precio máximo</label>
+                </div>
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="idPedido" name="idPedido" value="0">
+                    <label for="idPedido">Stock mínimo</label>
+                </div>
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="idPedido" name="idPedido" value="0" readonly>
+                    <label for="idPedido">Stock total (almacen)</label>
                 </div>
 
             </div>
@@ -34,133 +105,32 @@
             
 
             <div class='row'>
-                <div class='input-field col s12 l3'>
-                    <input type="number" id="idPedido" name="idPedido" value="" readonly>
-                    <label for="idPedido">Código de pedido</label>
-                </div>
-                <div class='input-field col s12 l5'>
-                    <input type="text" id="cliente" name="cliente" value="">
-                    <label for="cliente">Cliente</label>
-                    <input type="hidden" name="idcliente" id='idcliente'>
-                </div>
-                <div class='input-field col s6 l2'>
-                    <a class="btn-flat red-text" name="action" style="width: 100%; margin-top: 10px; padding: 0 0px 0 0px;">Nuevo cliente
-                        <i class="material-icons left">add_box</i>
-                    </a>
-                </div>
-                <div class='input-field col s6 l2'>
-                    <a class="btn-flat red-text" name="action" style="width: 100%; margin-top: 10px; padding: 0 0px 0 0px;">Datos de cliente
-                        <i class="material-icons left">remove_red_eye</i>
-                    </a>
+                
+                <div class='input-field col s0 l4'>
+                    
                 </div>
 
-            </div>
-
-            <div class='row'>
-                <div class='input-field col s12 l3'>
-                    <input type="number" id="tienda" name="tienda" value="" readonly>
-                    <label for="tienda">Tienda</label>
-                    <input type="hidden" id="idtienda" value="1">
-                </div>
-                <div class='input-field col s12 l5'>
-                    <input type="date" id="fechapedido" name="fechapedido" value="">
-                    <label for="fechapedido">Fecha pedido</label>							
-                </div>
-                <div class='input-field col s12 l4'>
-                    <input type="date" id="fechaentrega" name="fechaentrega" value="">
-                    <label for="fechaentrega">Fecha entrega</label>							
-                </div>
-
-                <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
-                    <select id="empresa" name="empresa" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione empresa</option>
-                        <option value="" selected="true">SHANDONG TIANXIN TRADING COMPANY S.A.C.</option>
-                    </select>
-                    <label style="padding-top: 5px;">Empresa responsable del pedido</label>
-                </div>
-
-                <div class='col s12 l12 right-align'>
-                    <label>
-                        <input type="checkbox" class="filled-in"/>
-                        <span>DESPACHO A DOMICILIO</span>
-                    </label>							
+                <div class='input-field col s12 l8 right-align'>
+                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">filter_none</i>Nuevo</a>
+                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">save</i>Registrar</a>
+                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">update</i>Modificar</a>
+                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">delete</i>Eliminar</a>
                 </div>
                 
-
             </div>
 
+           
         </div>
 
-        <div class='section' style='margin-top: -50px;'>
-
-            <h5>Detalle de pedido</h5>
-            <div class='divider black'></div>
-
-            <table class="highlight">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th width='450'>PRODUCTO</th>
-                        <th width='60'>CANTIDAD</th>
-                        <th width='100'>P.UNIT</th>
-                        <th width='100'>P.TOTAL</th>
-                        <th>DESCUENTO</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div class='input-field' style='margin-right: 10px;'>
-                                <input type="text" id="nompro" name="nompro" value="">								
-                                <input type="hidden" id="idProducto" value="">
-                            </div>
-                        </td>
-                        <td>
-                            <div class='input-field' style='margin-right: 10px;'>
-                                <input type="number" id="cantidad" name="cantidad" value="">								
-                            </div>
-                        </td>
-                        <td>
-                            <div class="input-field input-field-select">
-                                <select id="empresa" name="empresa" class="browser-default">
-                                    <option value="" disabled="" selected="">--</option>
-                                    <option value="" selected="true">122 PU</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td>
-                            <div class='input-field' style='margin-right: 10px;'>
-                                <input type="number" id="total" name="total" step="0.01" value="">								
-                            </div>
-                        </td>
-                        <td>
-                            <div class='input-field' style='margin-right: 10px;'>
-                                <input type="number" id="desc" name="desc" step="0.01" value="">								
-                            </div>
-                        </td>
-                        <td>
-                            <button class="btn-small waves-effect red lighten-2" type="submit" name="action"> Eliminar
-                                <i class="material-icons left">delete</i>
-                            </button>
-                        </td>
-                        
-                    </tr>
-                </tbody>
-            </table>
-
-
-        </div>
-
+        
 
 
 
     </div>
 
 
-    <div class="fixed-action-btn" style="bottom: 45px;">
+    <!-- <div class="fixed-action-btn" style="bottom: 45px;">
         <a class="btn-floating btn-large waves-effect tooltipped red" data-position="left" data-tooltip="Agregar producto a pedido">
             <i class="material-icons">add</i>
         </a>
-    </div>
+    </div> -->
