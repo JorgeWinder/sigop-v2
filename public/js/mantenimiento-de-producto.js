@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded', async function(){
 
     (async function Load(){
 
@@ -24,6 +24,22 @@ document.addEventListener('DOMContentLoaded',function(){
             })
             //return await response.json(); body: JSON.stringify(form),
         }
+
+
+        // ------------------- Funciones ------------------------ //
+
+        async function listDatosProducto(tabla){
+
+          const { body: lista } = await getData('http://localhost:3000/' + tabla)
+
+          lista.forEach(element => {
+            document.querySelector(`#${tabla}`).innerHTML = document.querySelector(`#${tabla}`).innerHTML + `<option value="${element._id}">${element.nombre}</option>`
+          });
+
+        }
+
+
+        // ------------------------------------------------------ //
   
         const $data = document.querySelector("form");
   
@@ -36,7 +52,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
         document.querySelector("#nombre_producto").focus()
 
-        document.querySelector("#medidas").addEventListener("keypress", function(e) {
+        document.querySelector("#medidas").addEventListener("input", function(e) {
             
             
             //document.querySelector("#nombre_producto").value = document.querySelector("#categoria"). //+ document.querySelector("#origen").value + document.querySelector("#color").value 
@@ -59,6 +75,12 @@ document.addEventListener('DOMContentLoaded',function(){
             
 
         })
+
+
+        
+        document.querySelector("#medidas").addEventListener("click", function(e) {
+          document.querySelector('#medidas').dispatchEvent(new Event('input'));
+        })  
         
         const inputs = document.querySelectorAll("form")
         inputs.forEach(element => {
@@ -69,6 +91,34 @@ document.addEventListener('DOMContentLoaded',function(){
                     return false;
                 }
             })    
+      });
+
+
+
+      listDatosProducto('categoria')
+      listDatosProducto('origen')
+      listDatosProducto('color')
+      await listDatosProducto('adt1')
+      await listDatosProducto('adt2')
+      await listDatosProducto('adt3')
+
+
+      document.querySelector("#adt1").selectedIndex=1
+      document.querySelector("#adt2").selectedIndex=1
+      document.querySelector("#adt3").selectedIndex=1
+
+
+      document.querySelectorAll('select').forEach(element => {
+          element.addEventListener('change', function(){
+             //alert('df')
+
+            //  if(document.querySelector("#adt1").selectedIndex!=1 && document.querySelector("#adt2").selectedIndex!=1 && document.querySelector("#adt3").selectedIndex!=1){
+
+            //     document.querySelector('#medidas').dispatchEvent(new Event('keydown'));
+
+            //  }
+             
+          })
       });
   
        

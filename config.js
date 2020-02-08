@@ -8,7 +8,7 @@ require('dotenv').config()
 const DateLima = require('./utils/date/timezona').DateLima
 
 const config = {
-    DB_URI: process.env.DB_URI || 'mongodb+srv://user-mbd:92kTFt6OQqlKe1Gu@cluster0-qmwio.gcp.mongodb.net/telegrom',
+    DB_URI: process.env.DB_URI || 'mongodb://104.154.83.252:27017/SIGOP', //'mongodb+srv://user-mbd:92kTFt6OQqlKe1Gu@cluster0-qmwio.gcp.mongodb.net/telegrom',
     PORT: process.env.PORT || 3000,
     HOST: process.env.HOST || 'http://localhost',
     DATE: DateLima
