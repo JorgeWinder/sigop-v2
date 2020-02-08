@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded',function(){
             //document.querySelector("#nombre_producto").value = document.querySelector("#categoria"). //+ document.querySelector("#origen").value + document.querySelector("#color").value 
             
 
-            const adt1 = commchildNodes[0].nodeValue == 'SIN ADITIVO'? '': document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue
+            const adt1 = document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue
             const adt2 = document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue
             const adt3 = document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue
 
