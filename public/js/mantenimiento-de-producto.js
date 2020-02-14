@@ -5,8 +5,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
     (async function Load(){
 
-    
 
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems);
+
+      var auto = document.querySelectorAll('.autocomplete');
+      M.Autocomplete.init(auto, { 
+        data: {
+        "Apple": null,
+        "Applf": null,
+        "Applf": null,
+        "App lh": null,
+        "Apsdspli": null,
+        "Applj": null,
+        "Applwwwj": null,
+        "Appwelj": null,
+        "Appldsddk": null,
+        "Microsoft": null,
+        "Google": 'https://placehold.it/250x250'
+      }
+    });
+    
         // ------------------- Funciones ------------------------ //
 
         async function listDatosProducto(tabla){
@@ -38,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function(){
             Swal.fire({
               icon: 'success',
               title: 'Todo bien',
-              text: `Prodcuto ${respuesta.body._id}, registrado`
+              text: `Producto ${respuesta.body._id} - ${respuesta.body.nombre_producto}, registrado`
             })
 
             document.querySelector("#registrar").disabled = true 
@@ -61,6 +80,11 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelectorAll("input").forEach(element => {
               element.focus()
             })
+
+            document.querySelector("#registrar").disabled = true 
+            document.querySelector("#actulizar").disabled = true 
+            document.querySelector("#eliminar").disabled = true 
+            
         })
 
         
