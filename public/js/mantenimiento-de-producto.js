@@ -1,30 +1,11 @@
 
-document.addEventListener('DOMContentLoaded', async function(){
+
+
+document.addEventListener('DOMContentLoaded', function(){
 
     (async function Load(){
 
-
-        async function getData(url){
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;        
-        }
-  
-        async function postData(url, form){
     
-          await fetch(url, 
-            {
-              method: "POST",
-              body: form
-            })
-            .then(function(response){
-                //swal("Datos guardados", "Continúe con la siguiente página", "success");
-                console.log(response)
-                //window.location.href = "modulo-de-cobranzas"
-            })
-            //return await response.json(); body: JSON.stringify(form),
-        }
-
 
         // ------------------- Funciones ------------------------ //
 
@@ -39,40 +20,80 @@ document.addEventListener('DOMContentLoaded', async function(){
         }
 
 
-        // ------------------------------------------------------ //
+        // -------------------- Eventos ------------------------ //
   
         const $data = document.querySelector("form");
   
         document.addEventListener("submit", async function(e){
-          
-          e.preventDefault();
-              
-  
+            
+            e.preventDefault();
+            const form = new FormData($data)
+
+            for (const key of form.keys()) {            
+              console.log(`${key} -> ${form.get(key)}`)
+            }
+
+            const respuesta = await postData("./producto", form)
+            
+            Swal.fire({
+              icon: 'success',
+              title: 'Todo bien',
+              text: `Prodcuto ${respuesta.body._id}, registrado`
+            })
+
+            document.querySelector("#registrar").disabled = true 
+            document.querySelector("#actulizar").disabled = false 
+            document.querySelector("#eliminar").disabled = false 
+            
+            console.log(respuesta)
+    
         });
 
-        document.querySelector("#nombre_producto").focus()
+        
 
+
+
+
+        
+
+        document.querySelector("#nuevo").addEventListener('click', function(){
+            document.querySelector("form").reset()
+            document.querySelectorAll("input").forEach(element => {
+              element.focus()
+            })
+        })
+
+        
         document.querySelector("#medidas").addEventListener("input", function(e) {
-            
-            
-            //document.querySelector("#nombre_producto").value = document.querySelector("#categoria"). //+ document.querySelector("#origen").value + document.querySelector("#color").value 
-            
-
-            const adt1 = document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': ' ' + document.querySelector("#adt1").selectedOptions[0].childNodes[0].nodeValue
-            const adt2 = document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': ' ' + document.querySelector("#adt2").selectedOptions[0].childNodes[0].nodeValue
-            const adt3 = document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue == 'SIN ADITIVO'? '': ' ' + document.querySelector("#adt3").selectedOptions[0].childNodes[0].nodeValue
+                        
+                    
+          if(document.querySelector("#categoria").selectedIndex!=0 && document.querySelector("#origen").selectedIndex!=0 && document.querySelector("#color").selectedIndex!=0 && document.querySelector("#unidad").selectedIndex!=0){
+          
+            const color = document.querySelector("#color").selectedOptions[0].childNodes[0].nodeValue == 'SIN COLOR'? '': document.querySelector("#color").selectedOptions[0].childNodes[0].nodeValue + " "
+            const medidas = document.querySelector("#medidas").value == '' ? '' : document.querySelector("#medidas").value.toUpperCase() + " "
 
             document.querySelector("#nombre_producto").value = document.querySelector("#categoria").selectedOptions[0].childNodes[0].nodeValue + " " 
                 + document.querySelector("#origen").selectedOptions[0].childNodes[0].nodeValue + " "             
-                + document.querySelector("#color").selectedOptions[0].childNodes[0].nodeValue 
-                + adt1 
-                + adt2 
-                + adt3 
-                + " " + document.querySelector("#medidas").value.toUpperCase() 
-            
+                + color
+                + medidas
+                + document.querySelector("#unidad").selectedOptions[0].childNodes[0].nodeValue                
+                            
                 document.querySelector("#nombre_producto").focus()
                 document.querySelector("#medidas").focus()
+
+                document.querySelector("#registrar").disabled = false 
+
+          }else{
+
+            document.querySelector("#medidas").value = ""
             
+            Swal.fire({
+              icon: 'warning',
+              title: 'Alerta',
+              text: 'Debe seleccionar todos los datos del producto'
+            })
+
+          }            
 
         })
 
@@ -81,6 +102,8 @@ document.addEventListener('DOMContentLoaded', async function(){
         document.querySelector("#medidas").addEventListener("click", function(e) {
           document.querySelector('#medidas').dispatchEvent(new Event('input'));
         })  
+
+      // ----------------------------------------------------- //
         
         const inputs = document.querySelectorAll("form")
         inputs.forEach(element => {
@@ -94,34 +117,19 @@ document.addEventListener('DOMContentLoaded', async function(){
       });
 
 
+      // ---------------------------------------------------  //
+
+      document.querySelector("#registrar").disabled = true 
+      document.querySelector("#actulizar").disabled = true 
+      document.querySelector("#eliminar").disabled = true 
+
+    
 
       listDatosProducto('categoria')
       listDatosProducto('origen')
       listDatosProducto('color')
-      await listDatosProducto('adt1')
-      await listDatosProducto('adt2')
-      await listDatosProducto('adt3')
-
-
-      document.querySelector("#adt1").selectedIndex=1
-      document.querySelector("#adt2").selectedIndex=1
-      document.querySelector("#adt3").selectedIndex=1
-
-
-      document.querySelectorAll('select').forEach(element => {
-          element.addEventListener('change', function(){
-             //alert('df')
-
-            //  if(document.querySelector("#adt1").selectedIndex!=1 && document.querySelector("#adt2").selectedIndex!=1 && document.querySelector("#adt3").selectedIndex!=1){
-
-            //     document.querySelector('#medidas').dispatchEvent(new Event('keydown'));
-
-            //  }
-             
-          })
-      });
-  
-       
+      listDatosProducto('unidad')
+      
         
         // document.getElementById('page-preloader').style.opacity = '0';
         // document.getElementById('page-preloader').style.display = 'none';

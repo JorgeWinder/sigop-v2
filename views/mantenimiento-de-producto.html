@@ -1,3 +1,4 @@
+<form>
 
 
     <div class='container'>
@@ -34,13 +35,13 @@
                 </div>
 
                 <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="adt1" name="adt1" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione dato</option>
+                    <select id="unidad" name="unidad" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione unidad de medida</option>
                     </select>
-                    <label style="padding-top: 5px;">1er dato de referencia</label>                    
+                    <label style="padding-top: 5px;">Unidad de medida</label>                    
                 </div>
 
-                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                <!-- <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
                     <select id="adt2" name="adt2" class="browser-default">
                         <option value="" disabled="" selected="">Seleccione dato</option>
                     </select>
@@ -52,7 +53,7 @@
                         <option value="" disabled="" selected="">Seleccione dato</option>
                     </select>
                     <label style="padding-top: 5px;">3er dato de referencia</label>                    
-                </div>
+                </div> -->
 
                 <div class='input-field col s12 l3'>
                     <input type="text" id="medidas" name="medidas" value="">
@@ -66,19 +67,19 @@
                 </div>
 
                 <div class='input-field col s12 l3'>
-                    <input type="number" id="idPedido" name="idPedido" value="0.00">
+                    <input type="number" id="precioMin" name="precioMin" step="0.01" value="0.00">
                     <label for="idPedido">Precio mínimo</label>
                 </div>
                 <div class='input-field col s12 l3'>
-                    <input type="number" id="idPedido" name="idPedido" value="0.00">
+                    <input type="number" id="precioMax" name="precioMax" step="0.01" value="0.00">
                     <label for="idPedido">Precio máximo</label>
                 </div>
                 <div class='input-field col s12 l3'>
-                    <input type="number" id="idPedido" name="idPedido" value="0">
+                    <input type="number" id="stockMin" name="stockMin" value="0">
                     <label for="idPedido">Stock mínimo</label>
                 </div>
                 <div class='input-field col s12 l3'>
-                    <input type="number" id="idPedido" name="idPedido" value="0" readonly>
+                    <input type="number" id="stocktotal" name="stockTotal" value="0" readonly>
                     <label for="idPedido">Stock total (almacen)</label>
                 </div>
 
@@ -88,15 +89,11 @@
 
             <div class='row'>
                 
-                <div class='input-field col s0 l4'>
-                    
-                </div>
-
-                <div class='input-field col s12 l8 right-align'>
-                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">filter_none</i>Nuevo</a>
-                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">save</i>Registrar</a>
-                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">update</i>Modificar</a>
-                    <a class="btn-large waves-effect red lighten-2" ><i class="material-icons left">delete</i>Eliminar</a>
+               <div class='input-field col s12 l12 right-align'>
+                    <button class="btn-large waves-effect red lighten-2" id="nuevo" type="button"><i class="material-icons left">filter_none</i>Nuevo</button>
+                    <button class="btn-large waves-effect red lighten-2" id="registrar" type="submit"><i class="material-icons left">save</i>Registrar</button>
+                    <button class="btn-large waves-effect red lighten-2" id="actulizar" type="button"><i class="material-icons left">update</i>Modificar</button>
+                    <button class="btn-large waves-effect red lighten-2" id="eliminar" type="button"><i class="material-icons left">delete</i>Eliminar</button>
                 </div>
                 
             </div>
@@ -116,3 +113,8 @@
             <i class="material-icons">add</i>
         </a>
     </div> -->
+
+
+
+</form>
+

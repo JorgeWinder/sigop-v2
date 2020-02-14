@@ -8,6 +8,9 @@ const socket = require('./socket')
 const cors = require('cors')
 const db = require('./db')
 
+var multer = require('multer')
+var upload = multer();
+
 
 const router = require('./network/routers')
 const router_vista = require('./network/routers_vista')
@@ -20,8 +23,10 @@ app.use(cors({
     //optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }))
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
+app.use(upload.array()); // for parsing multipart/form-data
+
 
 // ----Definir motor de plantillas----//
 

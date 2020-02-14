@@ -11,7 +11,7 @@ async function listCategoria(id){
                 filter._id = id
             }
 
-            resolver(model.find(filter))
+            resolver(model.find(filter).sort({nombre: 1}))
 
     })
     

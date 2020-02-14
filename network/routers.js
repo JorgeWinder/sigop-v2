@@ -9,6 +9,7 @@ const color = require('../components/color/network')
 const adt1 = require('../components/adt1/network')
 const adt2 = require('../components/adt2/network')
 const adt3 = require('../components/adt3/network')
+const unidad = require('../components/unidad/network')
 
 
 
@@ -24,6 +25,7 @@ const routers = function(server){
     server.use('/adt1', adt1)
     server.use('/adt2', adt2)
     server.use('/adt3', adt3)
+    server.use('/unidad', unidad)
     
 }
 

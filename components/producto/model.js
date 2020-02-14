@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-require('../../components/categoria/model')
+//require('../../components/categoria/model')
 
 const mySchema = new Schema({
 
@@ -13,10 +13,12 @@ const mySchema = new Schema({
     categoria: { type: String, ref: 'categorias'},
     origen: { type: String, ref: 'origenes'},
     color: { type: String, ref: 'colores'},
-    adt1: { type: String, ref: 'adt1'},
-    adt2: { type: Number, ref: 'adt2'},
-    adt3: { type: String, ref: 'adt3'},
+    unidad: { type: String, ref: 'unidades'},
+    descrip_unidad: String,
     nombre_producto: String,
+    precioMin : Number,
+    precioMax : Number,
+    stockMin  : Number,
     fecha_registro: Date
 
 })

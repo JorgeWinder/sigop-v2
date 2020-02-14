@@ -21,6 +21,7 @@ async function listProducto(id){
         .populate({path:'categoria',select: 'nombre -_id'})
         .populate('origen')
         .populate('color')
+        .populate('unidad')
         .exec((error, populate)=>{
             if(error){                
                 rechazar("Populado en listado de producto ==> " + error)                

@@ -17,9 +17,9 @@ function addProducto(producto){
 
   return new Promise(async function(resolver, rechazar){
 
-    const {nombre, categoria, origen, color, adt1, adt2, adt3} = producto
+    const {nombre_producto, categoria, origen, color, unidad, medidas, precioMin, precioMax, stockMin} = producto
     
-    if(nombre==''){
+    if(nombre_producto==''){
       rechazar('No existe datos')
       return false
     }
@@ -37,13 +37,15 @@ function addProducto(producto){
     
     const nuevoProdcuto = {
         _id: mongo_function._id,
-        nombre_producto: nombre,
+        nombre_producto: nombre_producto,
         categoria: categoria,
         origen: origen,
         color: color,
-        adt1: adt1, 
-        adt2: adt2, 
-        adt3: adt3, 
+        unidad: unidad,
+        descrip_unidad: medidas,
+        precioMin: precioMin ,
+        precioMax: precioMax,
+        stockMin: stockMin,
         fecha_registro: config.DATE
     }
 
