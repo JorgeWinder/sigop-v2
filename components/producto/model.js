@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-//require('../../components/categoria/model')
+const textSearch = require('mongoose-text-search')
 
 const mySchema = new Schema({
 
@@ -22,6 +22,9 @@ const mySchema = new Schema({
     fecha_registro: Date
 
 })
+
+mySchema.plugin(textSearch)
+mySchema.index({nombre_producto: 'text'})
 
 
 
