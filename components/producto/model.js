@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const textSearch = require('mongoose-text-search')
+//const textSearch = require('mongoose-text-search')
 
 const mySchema = new Schema({
 
@@ -23,7 +23,7 @@ const mySchema = new Schema({
 
 })
 
-mySchema.plugin(textSearch)
+//mySchema.plugin(textSearch)
 mySchema.index({nombre_producto: 'text'})
 
 

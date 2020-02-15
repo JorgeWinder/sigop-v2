@@ -9,6 +9,7 @@ db.Promise = global.Promise
 async function connect(url){
     
     db.connect(url, {
+    useCreateIndex: true,
     useNewUrlParser: true, useUnifiedTopology: true
     })
     console.log('[DB] Conectada con éxito a: ' +  chalk.bgWhite.black(url))

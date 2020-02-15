@@ -2,9 +2,22 @@ const model = require('./model')
 
 // Listar prodcutos //
 
-async function listProducto(id){
+async function listProducto(id, text){
 
     return new Promise(async (resolver, rechazar)=>{
+
+        if(text){
+
+            //model.find({nombre_producto: { $regex: '.*' + text + '.*' } }).explain()
+
+            resolver(
+            model.find({$text: {$search: '\"' + text + '\"'}}, {score: {$meta: "textScore"}}).sort({score:{$meta:"textScore"}})
+            .populate({path:'categoria',select: 'nombre -_id'})
+            .populate('origen')
+            .populate('color')
+            .populate('unidad')
+            )
+        }
 
         const filter = {}
 

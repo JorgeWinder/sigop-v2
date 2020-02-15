@@ -13,8 +13,9 @@ const router = express.Router()
 router.get('/' ,function(req, res){
 
     const filterProducto = req.query.id || null
+    const filterProductoText = req.query.textSearch || null
     
-    controller.listProducto(filterProducto)
+    controller.listProducto(filterProducto, filterProductoText)
         .then((data)=>{
             response.success(req, res, data, 200)
         })

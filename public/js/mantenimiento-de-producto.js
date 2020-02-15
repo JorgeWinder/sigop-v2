@@ -9,22 +9,6 @@ document.addEventListener('DOMContentLoaded', function(){
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
 
-      var auto = document.querySelectorAll('.autocomplete');
-      M.Autocomplete.init(auto, { 
-        data: {
-        "Apple": null,
-        "Applf": null,
-        "Applf": null,
-        "App lh": null,
-        "Apsdspli": null,
-        "Applj": null,
-        "Applwwwj": null,
-        "Appwelj": null,
-        "Appldsddk": null,
-        "Microsoft": null,
-        "Google": 'https://placehold.it/250x250'
-      }
-    });
     
         // ------------------- Funciones ------------------------ //
 
@@ -68,10 +52,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
         });
 
-        
-
-
-
 
         
 
@@ -85,6 +65,52 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelector("#actulizar").disabled = true 
             document.querySelector("#eliminar").disabled = true 
             
+        })
+
+
+        
+        var elems2 = document.querySelectorAll('.autocomplete');
+
+        document.querySelector("#nombre_producto_busqueda").addEventListener('keydown', async function(e){
+
+              const keyCode = e.keyCode || e.which;
+
+                  if (keyCode === 8) { 
+                    if(M.Autocomplete.getInstance(elems2)){
+                      let instance = M.Autocomplete.getInstance(elems2);
+                      instance.updateData({});
+                    }
+                  }
+
+                  if (keyCode === 13) {
+                    
+                    const { body: lista } = await getData('./producto?textSearch='+ this.value)
+                    console.log(lista)
+
+                    let objdata = new Object()
+                    
+                    lista.forEach(element => {
+                      objdata[`${element._id.toString().padStart(3,"0")} - ${element.nombre_producto}`] = null
+                    });
+
+
+                    
+                    instances2 = M.Autocomplete.init(elems2, { 
+                        data: objdata,
+                        onAutocomplete: function(txt) {
+                            alert(txt.split('-')[0].trim());
+                            // ListarMovimientos(txt.split('-')[0].trim())
+                            // document.querySelector('#idProducto').value = txt.split('-')[0].trim()
+                            
+                        }
+                    });
+
+                    document.querySelector('#modal1').focus()
+                    document.querySelector('#nombre_producto_busqueda').focus()
+                    
+  
+                  }
+
         })
 
         

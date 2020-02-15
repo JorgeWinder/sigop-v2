@@ -4,10 +4,10 @@ const config = require('../../config').config
 const mongo_function = require('../../utils/database/mongo-function')
 
 
-function listProducto(id){
+function listProducto(id, text){
   return new Promise(function(resolver, rechazar){
 
-    resolver(store.list(id))
+    resolver(store.list(id, text))
     
   })
 }
