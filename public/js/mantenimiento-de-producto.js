@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', function(){
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
 
+      M.toast({html: 'I am a toast!'})
     
-        // ------------------- Funciones ------------------------ //
+        // ******************* Funciones ********************** //
 
         async function listDatosProducto(tabla){
 
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
 
-        // -------------------- Eventos ------------------------ //
+        // ********************* Eventos ********************* //
   
         const $data = document.querySelector("form");
   
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
         });
 
 
-        
+        // Botón nuevo //
 
         document.querySelector("#nuevo").addEventListener('click', function(){
             document.querySelector("form").reset()
@@ -68,9 +69,11 @@ document.addEventListener('DOMContentLoaded', function(){
         })
 
 
+
         
         var elems2 = document.querySelectorAll('.autocomplete');
 
+        /*
         document.querySelector("#nombre_producto_busqueda").addEventListener('keydown', async function(e){
 
               const keyCode = e.keyCode || e.which;
@@ -113,7 +116,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
         })
 
-        
+        */
+
+        // Crear nombre de producto //
+
         document.querySelector("#medidas").addEventListener("input", function(e) {
                         
                     
@@ -148,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function(){
         })
 
 
+        // Dsiparar evento input a dar click a descrip. de medidas // 
         
         document.querySelector("#medidas").addEventListener("click", function(e) {
           document.querySelector('#medidas').dispatchEvent(new Event('input'));
