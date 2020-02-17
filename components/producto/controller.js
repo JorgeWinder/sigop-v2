@@ -17,7 +17,7 @@ function addProducto(producto){
 
   return new Promise(async function(resolver, rechazar){
 
-    const {nombre_producto, categoria, origen, color, unidad, medidas, precioMin, precioMax, stockMin} = producto
+    const {nombre_producto, categoria, origen, color, unidad, medidas, precioMin, precioMax, stockMin, especificacion} = producto
     
     if(nombre_producto==''){
       rechazar('No existe datos')
@@ -46,6 +46,7 @@ function addProducto(producto){
         precioMin: precioMin ,
         precioMax: precioMax,
         stockMin: stockMin,
+        especificacion: especificacion,
         fecha_registro: config.DATE
     }
 
