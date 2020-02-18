@@ -1,6 +1,9 @@
 <form>
 
 
+    
+
+
     <div class='container'>
 
         <div class='section'></div>
@@ -9,7 +12,7 @@
         <div class='divider black'></div>
         
         <div class='section'>
-
+        
             <div class='row'>
 
                 <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
@@ -62,26 +65,54 @@
 
                 <div class='input-field col s12 l9'>
                     <input type="text" id="nombre_producto" name="nombre_producto" value="" readonly>
-                    <label for="cliente">Nombre de producto</label>
+                    <label for="nombre_producto">Nombre de producto</label>
                     <input type="hidden" name="idProducto" id='idProducto'>
                 </div>
 
                 <div class='input-field col s12 l3'>
                     <input type="number" id="precioMin" name="precioMin" step="0.01" value="0.00">
-                    <label for="idPedido">Precio mínimo</label>
+                    <label for="precioMin">Precio mínimo</label>
                 </div>
                 <div class='input-field col s12 l3'>
                     <input type="number" id="precioMax" name="precioMax" step="0.01" value="0.00">
-                    <label for="idPedido">Precio máximo</label>
+                    <label for="precioMax">Precio máximo</label>
                 </div>
                 <div class='input-field col s12 l3'>
                     <input type="number" id="stockMin" name="stockMin" value="0">
-                    <label for="idPedido">Stock mínimo</label>
+                    <label for="stockMin">Stock mínimo</label>
                 </div>
                 <div class='input-field col s12 l3'>
                     <input type="number" id="stocktotal" name="stockTotal" value="0" readonly>
-                    <label for="idPedido">Stock total (almacen)</label>
+                    <label for="stocktotal">Stock total (almacen)</label>
                 </div>
+
+                
+
+                <div class='col s12 l12'>
+
+                    <ul class="collapsible">
+                        <li>
+                          <div class="collapsible-header"><i class="material-icons">expand_more</i>Especificaciones técnicas </div>
+                          <div class="collapsible-body">
+
+                                <div class="row">
+                                    <form class="col s12">
+                                      <div class="row">
+                                        <div class="input-field col s12">
+                                          <textarea id="especificacion" name="especificacion" class="materialize-textarea" maxlength="140" placeholder="ESCRIBA LA ESPECIFICACIÓN"></textarea>
+                                          <!-- <label for="especificacion" class='active'>Textarea</label> -->
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+                            
+
+                          </div>
+                        </li>
+                    </ul>
+
+                </div>
+                        
 
             </div>
 
@@ -90,7 +121,7 @@
             <div class='row'>
                 
                <div class='input-field col s12 l12 right-align'>
-                    <a class="btn-large waves-effect red lighten-2 modal-trigger" href="#modal1"><i class="material-icons left">find_in_page</i>Buscar</a>
+                    <a class="btn-large waves-effect red lighten-2 modal-trigger" id="busqueda" href="#modal1"><i class="material-icons left">find_in_page</i>Buscar</a>
                     <button class="btn-large waves-effect red lighten-2" id="nuevo" type="button"><i class="material-icons left">filter_none</i>Nuevo</button>
                     <button class="btn-large waves-effect red lighten-2" id="registrar" type="submit"><i class="material-icons left">save</i>Registrar</button>
                     <button class="btn-large waves-effect red lighten-2" id="actulizar" type="button"><i class="material-icons left">update</i>Modificar</button>
@@ -118,14 +149,14 @@
                 <div class='input-field col s12 l12'>
                     <input type="text" id="nombre_producto_busqueda" class="autocomplete" value="">
                     <!-- <label for="nombre_producto_busqueda">Nombre de producto</label> -->
-                    <span class="helper-text green-text" data-error="wrong" data-success="right"><span style="font-size: 20px;">⌨</span> Escriba un nombre y presione tecla [ENTER] para iniciar búsqueda</span>
+                    <span class="helper-text green-text" data-error="wrong" data-success="right"><span style="font-size: 20px;">⌨</span> Escriba un nombre, selecione un producto y presione tecla [ENTER] para iniciar búsqueda</span>
                     <input type="hidden" name="" id=''>
                 </div>
 
             </div>
         </div>
         <div class="modal-footer">
-        <a href="" class="modal-close waves-effect waves-red btn-flat"><i class="material-icons right">close</i>Cerrar</a>
+        <a href="#" class="modal-close waves-effect waves-red btn-flat"><i class="material-icons right">close</i>Cerrar</a>
         </div>
     </div>
 

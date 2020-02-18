@@ -19,6 +19,7 @@ const mySchema = new Schema({
     precioMin : Number,
     precioMax : Number,
     stockMin  : Number,
+    especificacion: String,
     fecha_registro: Date
 
 })

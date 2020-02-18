@@ -1,17 +1,18 @@
 
 
-
 document.addEventListener('DOMContentLoaded', function(){
 
     (async function Load(){
 
 
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems);
+      const elems = document.querySelectorAll('.modal');
+      const instanceModal = M.Modal.init(elems);
 
-      M.toast({html: 'I am a toast!'})
-    
-        // ******************* Funciones ********************** //
+
+      var elemsColl = document.querySelectorAll('.collapsible');
+      M.Collapsible.init(elemsColl);
+      
+        // ***************** Funciones ******************* //
 
         async function listDatosProducto(tabla){
 
@@ -23,8 +24,73 @@ document.addEventListener('DOMContentLoaded', function(){
 
         }
 
+        async function ListarProductos(){
 
-        // ********************* Eventos ********************* //
+
+                    let objdata = new Object()
+
+                    const { body: lista } = await getData('./producto')
+                    //console.log(lista)
+                    
+                    lista.forEach(element => {
+                      objdata[`${element._id.toString().padStart(3,"0")} - ${element.nombre_producto}`] = null
+                    });
+                    
+        
+
+                    const elems = document.querySelectorAll('.autocomplete')
+                    
+                    const instance = M.Autocomplete.init(elems, { 
+                        data: objdata,
+                        onAutocomplete: function(itemSelect) {
+                            // alert(txtItem.split('-')[0].trim());
+                            const idProducto = itemSelect.split('-')[0].trim()
+
+                            getProducto(idProducto)
+                            document.querySelector('#idProducto').value = idProducto
+                            document.querySelector('#nombre_producto_busqueda').value = ''
+                            M.Modal.getInstance(document.querySelector('.modal')).close()
+                            
+                        }
+                    });
+
+                    M.toast({html: 'Lista de productos cargados'})
+
+        }
+
+
+        async function getProducto(idProducto){
+
+          const { body: 
+                  { 0 : producto} 
+                } = await getData('./producto?id=' + idProducto)
+
+          console.log(producto)
+
+          document.querySelector('#categoria').value = producto.categoria._id
+          document.querySelector('#origen').value = producto.origen._id
+          document.querySelector('#color').value = producto.color._id
+          document.querySelector('#unidad').value = producto.unidad._id
+          document.querySelector('#medidas').value = producto.descrip_unidad
+          document.querySelector('#nombre_producto').value = producto.nombre_producto
+          document.querySelector('#precioMin').value = producto.precioMin
+          document.querySelector('#precioMax').value = producto.precioMax
+          document.querySelector('#stockMin').value = producto.stockMin
+          document.querySelector('#especificacion').value = producto.especificacion
+
+          document.querySelector("#registrar").disabled = true 
+          document.querySelector("#actulizar").disabled = false 
+          document.querySelector("#eliminar").disabled = false
+
+          document.querySelectorAll("input").forEach(element => {
+            element.focus()
+          })
+
+        }
+
+
+
+        // ****************** Eventos ******************* //
   
         const $data = document.querySelector("form");
   
@@ -49,7 +115,8 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelector("#actulizar").disabled = false 
             document.querySelector("#eliminar").disabled = false 
             
-            console.log(respuesta)
+            //console.log(respuesta)
+            ListarProductos()
     
         });
 
@@ -64,13 +131,48 @@ document.addEventListener('DOMContentLoaded', function(){
 
             document.querySelector("#registrar").disabled = true 
             document.querySelector("#actulizar").disabled = true 
-            document.querySelector("#eliminar").disabled = true 
+            document.querySelector("#eliminar").disabled = true
+
+            document.querySelector('#idProducto').value = ''
             
+        })
+
+        // Botón actualizar //
+
+        document.querySelector("#actulizar").addEventListener('click', async function(){
+
+            const form = new FormData($data)
+
+            // for (const key of form.keys()) {            
+            //   console.log(`${key} -> ${form.get(key)}`)
+            // }
+
+            const idProducto = document.querySelector('#idProducto')
+
+            const respuesta = await patchData("./producto/" + idProducto.value, form)
+
+            Swal.fire({
+              icon: 'success',
+              title: 'Todo bien',
+              text: `Producto ${respuesta.body._id} - ${respuesta.body.nombre_producto}, actualizado`
+            })
+
+
+        })
+
+
+        document.querySelector("#busqueda").addEventListener('click', function(){
+
+          setTimeout(function(){
+            document.querySelector('#nombre_producto_busqueda').focus()
+          }, 500)
+
         })
 
 
 
-        
+        /*
+
         var elems2 = document.querySelectorAll('.autocomplete');
 
         /*
@@ -118,8 +220,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
         */
 
+
+
+
         // Crear nombre de producto //
 
+        
         document.querySelector("#medidas").addEventListener("input", function(e) {
                         
                     
@@ -154,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function(){
         })
 
 
-        // Dsiparar evento input a dar click a descrip. de medidas // 
+        // Evento click de dispara input  //
         
         document.querySelector("#medidas").addEventListener("click", function(e) {
           document.querySelector('#medidas').dispatchEvent(new Event('input'));
@@ -186,10 +292,16 @@ document.addEventListener('DOMContentLoaded', function(){
       listDatosProducto('origen')
       listDatosProducto('color')
       listDatosProducto('unidad')
+
+      ListarProductos()
       
         
         // document.getElementById('page-preloader').style.opacity = '0';
         // document.getElementById('page-preloader').style.display = 'none';
+
+      
+        M.CharacterCounter.init(document.getElementById('especificacion'))
+        //M.textareaAutoResize(null);
   
     })()
   

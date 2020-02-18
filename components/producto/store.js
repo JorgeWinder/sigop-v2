@@ -31,7 +31,7 @@ async function listProducto(id, text){
         // .select('categoria origen') -> mostrar campos especificos
 
         await model.find(filter)
-        .populate({path:'categoria',select: 'nombre -_id'})
+        .populate({path:'categoria'})
         .populate('origen')
         .populate('color')
         .populate('unidad')
@@ -61,17 +61,19 @@ function addProducto(producto){
 
 async function updateProducto(id, producto){
 
-    const {nombre, categoria, origen, color, adt1, adt2, adt3} = producto
+    const {nombre_producto, categoria, origen, color, medidas, precioMin, precioMax, stockMin, especificacion} = producto
 
     const doc_producto = await model.findOne({_id: id})
-    doc_producto.nombre_producto= nombre
+    doc_producto.nombre_producto= nombre_producto
     doc_producto.categoria = categoria
     doc_producto.origen = origen
     doc_producto.color = color
-    doc_producto.adt1 = adt1
-    doc_producto.adt2 = adt2
-    doc_producto.adt3 = adt3
-
+    doc_producto.descrip_unidad = medidas 
+    doc_producto.precioMin = precioMin 
+    doc_producto.precioMax = precioMax 
+    doc_producto.stockMin = stockMin
+    doc_producto.especificacion = especificacion
+    
     return doc_producto.save()
     
 }
