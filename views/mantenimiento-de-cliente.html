@@ -1,0 +1,173 @@
+<form>
+
+
+    
+
+
+    <div class='container'>
+
+        <div class='section'></div>
+
+        <h4>Mantenimiento de cliente</h4>
+        <div class='divider black'></div>
+        
+        <div class='section'>
+        
+            <div class='row'>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="categoria" name="categoria" class="browser-default">
+                        <option value="" disabled="" selected="true">Seleccione categoría</option>
+                    </select>
+                    <label style="padding-top: 5px;">Categoría</label>
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="origen" name="origen" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione origen</option>
+                        
+                    </select>
+                    <label style="padding-top: 5px;">Origen</label>
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="color" name="color" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione color</option>
+                    </select>
+                    <label style="padding-top: 5px;">Color</label>                    
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="unidad" name="unidad" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione unidad de medida</option>
+                    </select>
+                    <label style="padding-top: 5px;">Unidad de medida</label>                    
+                </div>
+
+                <!-- <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="adt2" name="adt2" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione dato</option>
+                    </select>
+                    <label style="padding-top: 5px;">2do dato de referencia</label>                    
+                </div>
+
+                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
+                    <select id="adt3" name="adt3" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione dato</option>
+                    </select>
+                    <label style="padding-top: 5px;">3er dato de referencia</label>                    
+                </div> -->
+
+                <div class='input-field col s12 l3'>
+                    <input type="text" id="medidas" name="medidas" value="">
+                    <label for="medidas">Descripción de medidas o peso</label>
+                </div>
+
+                <div class='input-field col s12 l9'>
+                    <input type="text" id="nombre_producto" name="nombre_producto" value="" readonly>
+                    <label for="nombre_producto">Nombre de producto</label>
+                    <input type="hidden" name="idProducto" id='idProducto'>
+                </div>
+
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="precioMin" name="precioMin" step="0.01" value="0.00">
+                    <label for="precioMin">Precio mínimo</label>
+                </div>
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="precioMax" name="precioMax" step="0.01" value="0.00">
+                    <label for="precioMax">Precio máximo</label>
+                </div>
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="stockMin" name="stockMin" value="0">
+                    <label for="stockMin">Stock mínimo</label>
+                </div>
+                <div class='input-field col s12 l3'>
+                    <input type="number" id="stocktotal" name="stockTotal" value="0" readonly>
+                    <label for="stocktotal">Stock total (almacen)</label>
+                </div>
+
+                
+
+                <div class='col s12 l12'>
+
+                    <ul class="collapsible">
+                        <li>
+                          <div class="collapsible-header"><i class="material-icons">expand_more</i>Especificaciones técnicas </div>
+                          <div class="collapsible-body">
+
+                                <div class="row">
+                                    <form class="col s12">
+                                      <div class="row">
+                                        <div class="input-field col s12">
+                                          <textarea id="especificacion" name="especificacion" class="materialize-textarea" maxlength="140" placeholder="ESCRIBA LA ESPECIFICACIÓN"></textarea>
+                                          <!-- <label for="especificacion" class='active'>Textarea</label> -->
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+                            
+
+                          </div>
+                        </li>
+                    </ul>
+
+                </div>
+                        
+
+            </div>
+
+            
+
+            <div class='row'>
+                
+               <div class='input-field col s12 l12 right-align'>
+                    <a class="btn-large waves-effect red lighten-2 modal-trigger" id="busqueda" href="#modal1"><i class="material-icons left">find_in_page</i>Buscar</a>
+                    <button class="btn-large waves-effect red lighten-2" id="nuevo" type="button"><i class="material-icons left">filter_none</i>Nuevo</button>
+                    <button class="btn-large waves-effect red lighten-2" id="registrar" type="submit"><i class="material-icons left">save</i>Registrar</button>
+                    <button class="btn-large waves-effect red lighten-2" id="actulizar" type="button"><i class="material-icons left">update</i>Modificar</button>
+                    <button class="btn-large waves-effect red lighten-2" id="eliminar" type="button"><i class="material-icons left">delete</i>Eliminar</button>
+                </div>
+                
+            </div>
+
+           
+        </div>
+
+        
+
+
+
+    </div>
+
+
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+        <h5>BÚSQUEDA DE PRODUCTO</h5>
+            <div class="row">
+                <div class='input-field col s12 l12'>
+                    <input type="text" id="nombre_producto_busqueda" class="autocomplete" value="">
+                    <!-- <label for="nombre_producto_busqueda">Nombre de producto</label> -->
+                    <span class="helper-text green-text" data-error="wrong" data-success="right"><span style="font-size: 20px;">⌨</span> Escriba un nombre, selecione un producto y presione tecla [ENTER] para iniciar búsqueda</span>
+                    <input type="hidden" name="" id=''>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+        <a href="#" class="modal-close waves-effect waves-red btn-flat"><i class="material-icons right">close</i>Cerrar</a>
+        </div>
+    </div>
+
+
+    <!-- <div class="fixed-action-btn" style="bottom: 45px;">
+        <a class="btn-floating btn-large waves-effect tooltipped red" data-position="left" data-tooltip="Agregar producto a pedido">
+            <i class="material-icons">add</i>
+        </a>
+    </div> -->
+
+
+
+</form>
+
