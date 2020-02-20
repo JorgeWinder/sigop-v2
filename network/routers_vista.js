@@ -19,6 +19,10 @@ const routers = function(server){
     router.get('/mantenimiento-de-producto', function(req, res){
         res.render('mantenimiento-de-producto', {script_name: 'mantenimiento-de-producto'})
     })
+    
+    router.get('/mantenimiento-de-cliente', function(req, res){
+        res.render('mantenimiento-de-cliente', {script_name: 'mantenimiento-de-cliente'})
+    })
 
     router.get('/registrar-movientos-almacen', function(req, res){
         res.render('registrar-movientos-almacen')

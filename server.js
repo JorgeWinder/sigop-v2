@@ -24,7 +24,7 @@ app.use(cors({
 }))
 
 app.use(bodyParser.json()) // for parsing application/json
-app.use(bodyParser.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false})) // for parsing application/x-www-form-urlencoded
 app.use(upload.array()); // for parsing multipart/form-data
 
 

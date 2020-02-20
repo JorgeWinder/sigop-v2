@@ -1,9 +1,5 @@
 <form>
 
-
-    
-
-
     <div class='container'>
 
         <div class='section'></div>
@@ -13,97 +9,79 @@
         
         <div class='section'>
         
-            <div class='row'>
+            <div class='row' style="padding-top: 5px;">
 
-                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="categoria" name="categoria" class="browser-default">
-                        <option value="" disabled="" selected="true">Seleccione categoría</option>
-                    </select>
-                    <label style="padding-top: 5px;">Categoría</label>
-                </div>
-
-                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="origen" name="origen" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione origen</option>
-                        
-                    </select>
-                    <label style="padding-top: 5px;">Origen</label>
+                <div class='input-field col s12 l6'>
+                    <input type="number" id="nro_doc" name="nro_doc" value="">
+                    <label for="nombre_producto">Número de documento o RUC</label>
                 </div>
 
                 <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="color" name="color" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione color</option>
+                    <select id="tipoCliente" name="tipoCliente" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione tipo cliente</option>
                     </select>
-                    <label style="padding-top: 5px;">Color</label>                    
+                    <label style="padding-top: 5px;">Tipo de cliente</label>
                 </div>
 
-                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="unidad" name="unidad" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione unidad de medida</option>
+                
+                <div class='input-field col s12 l12'>
+                    <input type="number" id="nombre" name="nombre" value="" readonly>
+                    <label for="nombre">Nombre y apellidos / Razón social</label>
+                </div>
+
+                
+                <div class='input-field col s12 l12'>
+                    <input type="number" id="direccion" name="direccion" value="" readonly>
+                    <label for="direccion">Dirección</label>
+                </div>
+
+                <div class="input-field input-field-select col s12 l4" style="padding-top: 5px;">
+                    <select id="departamento" name="departamento" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione departamento</option>
                     </select>
-                    <label style="padding-top: 5px;">Unidad de medida</label>                    
+                    <label style="padding-top: 5px;">Departamento</label>                    
                 </div>
 
-                <!-- <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="adt2" name="adt2" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione dato</option>
+                <div class="input-field input-field-select col s12 l4" style="padding-top: 5px;">
+                    <select id="provincia" name="provincia" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione provincia</option>
                     </select>
-                    <label style="padding-top: 5px;">2do dato de referencia</label>                    
+                    <label style="padding-top: 5px;">Provincia</label>                                        
                 </div>
-
-                <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
-                    <select id="adt3" name="adt3" class="browser-default">
-                        <option value="" disabled="" selected="">Seleccione dato</option>
+                
+                <div class="input-field input-field-select col s12 l4" style="padding-top: 5px;">
+                    <select id="distrito" name="distrito" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione distrito</option>
                     </select>
-                    <label style="padding-top: 5px;">3er dato de referencia</label>                    
-                </div> -->
-
-                <div class='input-field col s12 l3'>
-                    <input type="text" id="medidas" name="medidas" value="">
-                    <label for="medidas">Descripción de medidas o peso</label>
+                    <label style="padding-top: 5px;">Distrito</label>                                        
                 </div>
 
-                <div class='input-field col s12 l9'>
-                    <input type="text" id="nombre_producto" name="nombre_producto" value="" readonly>
-                    <label for="nombre_producto">Nombre de producto</label>
-                    <input type="hidden" name="idProducto" id='idProducto'>
-                </div>
+                
+              
 
-                <div class='input-field col s12 l3'>
-                    <input type="number" id="precioMin" name="precioMin" step="0.01" value="0.00">
-                    <label for="precioMin">Precio mínimo</label>
-                </div>
-                <div class='input-field col s12 l3'>
-                    <input type="number" id="precioMax" name="precioMax" step="0.01" value="0.00">
-                    <label for="precioMax">Precio máximo</label>
-                </div>
-                <div class='input-field col s12 l3'>
-                    <input type="number" id="stockMin" name="stockMin" value="0">
-                    <label for="stockMin">Stock mínimo</label>
-                </div>
-                <div class='input-field col s12 l3'>
-                    <input type="number" id="stocktotal" name="stockTotal" value="0" readonly>
-                    <label for="stocktotal">Stock total (almacen)</label>
-                </div>
-
+            
                 
 
                 <div class='col s12 l12'>
 
                     <ul class="collapsible">
                         <li>
-                          <div class="collapsible-header"><i class="material-icons">expand_more</i>Especificaciones técnicas </div>
+                          <div class="collapsible-header"><i class="material-icons">expand_more</i>Datos de contacto </div>
                           <div class="collapsible-body">
 
-                                <div class="row">
-                                    <form class="col s12">
-                                      <div class="row">
-                                        <div class="input-field col s12">
-                                          <textarea id="especificacion" name="especificacion" class="materialize-textarea" maxlength="140" placeholder="ESCRIBA LA ESPECIFICACIÓN"></textarea>
-                                          <!-- <label for="especificacion" class='active'>Textarea</label> -->
-                                        </div>
-                                      </div>
-                                    </form>
+                                <div class="row">                                
+                                        <div class='input-field col s12 l7'>
+                                            <input type="text" id="nombres_contacto" name="nombres_contacto" value="">
+                                            <label for="nombres_contacto">Nombres y apellidos de contacto</label>
+                                        </div>                            
+                                        <div class='input-field col s12 l7'>
+                                            <input type="text" id="correo" name="correo" value="">
+                                            <label for="correo">Correo elctrónico</label>
+                                        </div>                
+                                        <div class='input-field col s12 l7'>
+                                            <input type="text" id="telefono_contacto" name="telefono_contacto" value="">
+                                            <label for="correo">Teléfono</label>
+                                        </div>                                   
                                   </div>
                             
 

@@ -10,6 +10,8 @@ const adt1 = require('../components/adt1/network')
 const adt2 = require('../components/adt2/network')
 const adt3 = require('../components/adt3/network')
 const unidad = require('../components/unidad/network')
+const tipocliente = require('../components/tipocliente/network')
+const ubigeo = require('../components/ubigeo/network')
 
 
 
@@ -26,6 +28,8 @@ const routers = function(server){
     server.use('/adt2', adt2)
     server.use('/adt3', adt3)
     server.use('/unidad', unidad)
+    server.use('/tipocliente', tipocliente)
+    server.use('/ubigeo', ubigeo)
     
 }
 
