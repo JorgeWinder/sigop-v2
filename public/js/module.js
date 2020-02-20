@@ -41,4 +41,3 @@ async function deleteData(url, form){
     return await response.json()
       
 }
-

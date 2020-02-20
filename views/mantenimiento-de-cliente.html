@@ -11,11 +11,6 @@
         
             <div class='row' style="padding-top: 5px;">
 
-                <div class='input-field col s12 l6'>
-                    <input type="number" id="nro_doc" name="nro_doc" value="">
-                    <label for="nombre_producto">Número de documento o RUC</label>
-                </div>
-
                 <div class="input-field input-field-select col s12 l6" style="padding-top: 5px;">
                     <select id="tipoCliente" name="tipoCliente" class="browser-default">
                         <option value="" disabled="" selected="">Seleccione tipo cliente</option>
@@ -24,14 +19,19 @@
                 </div>
 
                 
+                <div class='input-field col s12 l6'>
+                    <input type="number" id="nro_doc" name="nro_doc" >
+                    <label for="nro_doc">Número de documento o RUC</label>
+                </div>
+                
                 <div class='input-field col s12 l12'>
-                    <input type="number" id="nombre" name="nombre" value="" readonly>
+                    <input type="text" id="nombre" name="nombre" value="">
                     <label for="nombre">Nombre y apellidos / Razón social</label>
                 </div>
 
                 
                 <div class='input-field col s12 l12'>
-                    <input type="number" id="direccion" name="direccion" value="" readonly>
+                    <input type="text" id="direccion" name="direccion" value="">
                     <label for="direccion">Dirección</label>
                 </div>
 
@@ -122,12 +122,12 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
-        <h5>BÚSQUEDA DE PRODUCTO</h5>
+        <h5>BÚSQUEDA DE CLIENTE</h5>
             <div class="row">
                 <div class='input-field col s12 l12'>
                     <input type="text" id="nombre_producto_busqueda" class="autocomplete" value="">
                     <!-- <label for="nombre_producto_busqueda">Nombre de producto</label> -->
-                    <span class="helper-text green-text" data-error="wrong" data-success="right"><span style="font-size: 20px;">⌨</span> Escriba un nombre, selecione un producto y presione tecla [ENTER] para iniciar búsqueda</span>
+                    <span class="helper-text green-text" data-error="wrong" data-success="right"><span style="font-size: 20px;">⌨</span> Escriba un nombre, selecione un cliente y presione tecla [ENTER] para iniciar búsqueda</span>
                     <input type="hidden" name="" id=''>
                 </div>
 

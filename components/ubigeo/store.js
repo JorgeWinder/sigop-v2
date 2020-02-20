@@ -2,7 +2,7 @@ const model = require('./model')
 
 // Listar prodcutos //
 
-async function listUbigeo(by, idDeparatamento, idProvincia){
+async function listUbigeo(by, idDepartamento, idProvincia){
 
     return new Promise(async (resolver, rechazar)=>{
 
@@ -65,7 +65,7 @@ async function listUbigeo(by, idDeparatamento, idProvincia){
 
             model.aggregate()
                 .match(
-                    { "departamentoId": { $in: [parseInt(idDeparatamento)] } }
+                    { "departamentoId": { $in: [parseInt(idDepartamento)] } }
                 )
                 .group({           
                 "_id": "$provinciaId",
@@ -74,18 +74,26 @@ async function listUbigeo(by, idDeparatamento, idProvincia){
                 })
                 .exec(function (err, result){
                     if (err) { /* Handle error */};
-                    //console.log(JSON.stringify(result, null, 4));
                     resolver(result)
                 });
         }
 
         if(by == "distrito"){
 
-            filter["provinciaId"] = idProvincia
-
-            model.find(filter).sort({nombreDistrito: 1}).distinct('distritoId', function(error, ids) {
-                resolver(ids)
-            });
+            
+            model.aggregate()
+                .match(
+                    { "provinciaId": { $in: [parseInt(idProvincia)] } , "departamentoId": { $in: [parseInt(idDepartamento)] }  }
+                )
+                .group({           
+                "_id": "$distritoId",
+                "nombre": { $first: "$nombreDistrito" },
+                "Provincia": { $first: "$nombreProvincia" }
+                })
+                .exec(function (err, result){
+                    if (err) { /* Handle error */};
+                    resolver(result)
+                });
 
         }
 

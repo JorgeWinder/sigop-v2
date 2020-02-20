@@ -4,10 +4,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     (async function Load(){
 
-
       const elems = document.querySelectorAll('.modal');
       const instanceModal = M.Modal.init(elems);
-
 
       var elemsColl = document.querySelectorAll('.collapsible');
       M.Collapsible.init(elemsColl);

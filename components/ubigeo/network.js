@@ -15,8 +15,6 @@ router.get('/:by' ,function(req, res){
     const busqueda_por= req.params.by || null
     const filtroDepartamento = req.query.idDepartamento || null
     const filtroProvincia = req.query.idProvincia || null
-    
-    console.log(filtroDepartamento)
 
     controller.listUbigeo(busqueda_por, filtroDepartamento, filtroProvincia)
         .then((data)=>{
