@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', function(){
             const instance = M.Autocomplete.init(elems, { 
                 data: objdata,
                 onAutocomplete: function(itemSelect) {
-                    alert(itemSelect.split('-')[0].trim());
-                    //const idProducto = itemSelect.split('-')[0].trim()
+                    //alert(itemSelect.split('-')[0].trim());
+                    const idCliente = itemSelect.split('-')[0].trim()
 
-                    // getProducto(idProducto)
+                    getCliente(idCliente)
                     // document.querySelector('#idProducto').value = idProducto
-                    // document.querySelector('#nombre_producto_busqueda').value = ''
-                    // M.Modal.getInstance(document.querySelector('.modal')).close()
+                    document.querySelector('#nombre_producto_busqueda').value = ''
+                    M.Modal.getInstance(document.querySelector('.modal')).close()
                     
                 }
             });
@@ -65,6 +65,36 @@ document.addEventListener('DOMContentLoaded', function(){
             M.toast({html: 'Lista de clientes cargados'})
 
         }
+
+        async function getCliente(idCliente){
+
+            const { body: 
+                    { 0 : cliente} 
+                  } = await getData('./cliente?id=' + idCliente)
+  
+            //console.log(producto)
+  
+            document.querySelector('#nro_doc').value = cliente.nro_doc
+            document.querySelector('#nombre').value = cliente.nombre
+            document.querySelector('#direccion').value = cliente.direccion
+            document.querySelector('#correo').value = cliente.correo
+            document.querySelector('#telefono').value = cliente.telefono
+            document.querySelector('#departamento').value = cliente.departamento.departamentoId
+            // document.querySelector('#provincia').value = cliente.color._id
+            // document.querySelector('#distrito').value = cliente.color._id
+            document.querySelector('#nombres_contacto').value = cliente.nombresContacto
+            document.querySelector('#correoContacto').value = cliente.correoContacto
+            document.querySelector('#telefonoContacto').value = cliente.telefonoContacto
+  
+            document.querySelector("#registrar").disabled = true 
+            document.querySelector("#actulizar").disabled = false 
+            document.querySelector("#eliminar").disabled = false
+  
+            document.querySelectorAll("input").forEach(element => {
+              element.focus()
+            })
+  
+          }
 
         // ************* Eventos *********** //
 
