@@ -20,8 +20,9 @@
 
                 
                 <div class='input-field col s12 l6'>
-                    <input type="number" id="nro_doc" name="nro_doc" >
+                    <input type="number" id="nro_doc" name="nro_doc" class="invalid">
                     <label for="nro_doc">Número de documento o RUC</label>
+                    <span id="msginput" class="helper-text" data-error="" data-success="Número valido"></span>
                 </div>
                 
                 <div class='input-field col s12 l12'>
@@ -34,6 +35,17 @@
                     <input type="text" id="direccion" name="direccion" value="">
                     <label for="direccion">Dirección</label>
                 </div>
+
+
+                <div class='input-field col s12 l6'>
+                    <input type="text" id="correo" name="correo" value="">
+                    <label for="correo">Correo elctrónico</label>
+                </div>                
+                <div class='input-field col s12 l6'>
+                    <input type="text" id="telefono" name="telefono" value="">
+                    <label for="telefono">Teléfono</label>
+                </div>                                   
+
 
                 <div class="input-field input-field-select col s12 l4" style="padding-top: 5px;">
                     <select id="departamento" name="departamento" class="browser-default">
@@ -56,9 +68,6 @@
                     <label style="padding-top: 5px;">Distrito</label>                                        
                 </div>
 
-                
-              
-
             
                 
 
@@ -75,14 +84,14 @@
                                             <label for="nombres_contacto">Nombres y apellidos de contacto</label>
                                         </div>                            
                                         <div class='input-field col s12 l7'>
-                                            <input type="text" id="correo" name="correo" value="">
-                                            <label for="correo">Correo elctrónico</label>
+                                            <input type="text" id="correoContacto" name="correoContacto" value="">
+                                            <label for="correoContacto">Correo elctrónico</label>
                                         </div>                
                                         <div class='input-field col s12 l7'>
-                                            <input type="text" id="telefono_contacto" name="telefono_contacto" value="">
-                                            <label for="correo">Teléfono</label>
+                                            <input type="text" id="telefonoContacto" name="telefonoContacto" value="">
+                                            <label for="telefonoContacto">Teléfono</label>
                                         </div>                                   
-                                  </div>
+                                </div>
                             
 
                           </div>
@@ -101,7 +110,7 @@
                <div class='input-field col s12 l12 right-align'>
                     <a class="btn-large waves-effect red lighten-2 modal-trigger" id="busqueda" href="#modal1"><i class="material-icons left">find_in_page</i>Buscar</a>
                     <button class="btn-large waves-effect red lighten-2" id="nuevo" type="button"><i class="material-icons left">filter_none</i>Nuevo</button>
-                    <button class="btn-large waves-effect red lighten-2" id="registrar" type="submit"><i class="material-icons left">save</i>Registrar</button>
+                    <button class="btn-large waves-effect red lighten-2" id="registrar" type="button"><i class="material-icons left">save</i>Registrar</button>
                     <button class="btn-large waves-effect red lighten-2" id="actulizar" type="button"><i class="material-icons left">update</i>Modificar</button>
                     <button class="btn-large waves-effect red lighten-2" id="eliminar" type="button"><i class="material-icons left">delete</i>Eliminar</button>
                 </div>

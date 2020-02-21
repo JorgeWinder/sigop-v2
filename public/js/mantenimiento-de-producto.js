@@ -266,16 +266,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
       // ----------------------------------------------------- //
         
-        const inputs = document.querySelectorAll("form")
-        inputs.forEach(element => {
-            element.addEventListener("keypress",function(e){
-                var keyCode = e.keyCode || e.which;
-                if (keyCode === 13) { 
-                    e.preventDefault();
-                    return false;
-                }
-            })    
-      });
+
 
 
       // ---------------------------------------------------  //
