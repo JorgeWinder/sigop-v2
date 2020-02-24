@@ -229,14 +229,16 @@ document.addEventListener('DOMContentLoaded', function(){
                     
           if(document.querySelector("#categoria").selectedIndex!=0 && document.querySelector("#origen").selectedIndex!=0 && document.querySelector("#color").selectedIndex!=0 && document.querySelector("#unidad").selectedIndex!=0){
           
+            
             const color = document.querySelector("#color").selectedOptions[0].childNodes[0].nodeValue == 'SIN COLOR'? '': document.querySelector("#color").selectedOptions[0].childNodes[0].nodeValue + " "
-            const medidas = document.querySelector("#medidas").value == '' ? '' : document.querySelector("#medidas").value.toUpperCase() + " "
+            const medidas = document.querySelector("#medidas").value == '' ? '' : document.querySelector("#medidas").value.toUpperCase() + ""
+            const origen = document.querySelector("#origen").selectedOptions[0].childNodes[0].nodeValue == "SIN ORIGEN" ? '': document.querySelector("#origen").selectedOptions[0].childNodes[0].nodeValue + " "
 
             document.querySelector("#nombre_producto").value = document.querySelector("#categoria").selectedOptions[0].childNodes[0].nodeValue + " " 
-                + document.querySelector("#origen").selectedOptions[0].childNodes[0].nodeValue + " "             
+                + origen
                 + color
                 + medidas
-                + document.querySelector("#unidad").selectedOptions[0].childNodes[0].nodeValue                
+                //+ document.querySelector("#unidad").selectedOptions[0].childNodes[0].nodeValue                
                             
                 document.querySelector("#nombre_producto").focus()
                 document.querySelector("#medidas").focus()

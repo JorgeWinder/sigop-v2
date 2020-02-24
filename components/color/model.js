@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const mySchema = new Schema({
-    _id: String,
+    _id: Number,
     nombre: String,
 })
 

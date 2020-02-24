@@ -12,7 +12,7 @@ const mySchema = new Schema({
     },
     categoria: { type: String, ref: 'categorias'},
     origen: { type: String, ref: 'origenes'},
-    color: { type: String, ref: 'colores'},
+    color: { type: Number, ref: 'colores'},
     unidad: { type: String, ref: 'unidades'},
     descrip_unidad: String,
     nombre_producto: String,
