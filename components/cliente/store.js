@@ -29,9 +29,10 @@ async function listCliente(id, text){
         // .populate({path:'categoria',select: 'nombre -_id'})
         // .populate('categoria origen') -> para seleccionar multiples campos a popular
         // .select('categoria origen') -> mostrar campos especificos
+        // .populate('departamento', '-_id -provinciaId -nombreProvincia -distritoId -nombreDistrito')
 
         await model.find(filter)
-        .populate('departamento', '-_id -provinciaId -nombreProvincia -distritoId -nombreDistrito')
+        .populate('ubigeo')
         .exec((error, populate)=>{
             if(error){                
                 rechazar("Populado en listado de clientes ==> " + error)                
@@ -46,7 +47,7 @@ async function listCliente(id, text){
 }
 
 
-// Agregar producto //
+// Agregar cliente //
 function addCliente(producto){
 
     const NuevoProducto = new model(producto)
@@ -54,30 +55,30 @@ function addCliente(producto){
 
 }
 
-// Modificar producto //
+// Modificar cliente //
 
-async function updateProducto(id, producto){
+async function updateCliente(id, cliente){
 
-    const {nombre_producto, categoria, origen, color, medidas, precioMin, precioMax, stockMin, especificacion} = producto
+    const {tipoCliente, nombre, direccion, correo, telefono, distrito, nombres_contacto , correoContacto, telefonoContacto} = cliente
 
-    const doc_producto = await model.findOne({_id: id})
-    doc_producto.nombre_producto= nombre_producto
-    doc_producto.categoria = categoria
-    doc_producto.origen = origen
-    doc_producto.color = color
-    doc_producto.descrip_unidad = medidas 
-    doc_producto.precioMin = precioMin 
-    doc_producto.precioMax = precioMax 
-    doc_producto.stockMin = stockMin
-    doc_producto.especificacion = especificacion
+    const doc_cliente = await model.findOne({_id: id})
+    doc_cliente.tipoCliente= tipoCliente
+    doc_cliente.nombre = nombre.toUpperCase()
+    doc_cliente.direccion = direccion.toUpperCase()
+    doc_cliente.correo = correo.toUpperCase()
+    doc_cliente.ubigeo = distrito 
+    doc_cliente.telefono = telefono 
+    doc_cliente.nombres_contacto = nombres_contacto.toUpperCase()
+    doc_cliente.correoContacto = correoContacto.toUpperCase()
+    doc_cliente.telefonoContacto = telefonoContacto
     
-    return doc_producto.save()
+    return doc_cliente.save()
     
 }
 
 // Eliminar producto //
 
-async function deleteProducto(id){
+async function deleteCliente(id){
 
     const doc_producto = await model.deleteOne({_id: id})
 }
@@ -85,5 +86,6 @@ async function deleteProducto(id){
 module.exports = {
     list: listCliente,
     add: addCliente,
-    update: updateProducto
+    update: updateCliente,
+    delete: deleteCliente
 }

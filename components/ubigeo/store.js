@@ -85,10 +85,11 @@ async function listUbigeo(by, idDepartamento, idProvincia){
                 .match(
                     { "provinciaId": { $in: [parseInt(idProvincia)] } , "departamentoId": { $in: [parseInt(idDepartamento)] }  }
                 )
-                .group({           
-                "_id": "$distritoId",
-                "nombre": { $first: "$nombreDistrito" },
-                "Provincia": { $first: "$nombreProvincia" }
+                .group({
+                "_id": "$_id",
+                "Distrito": { $first: "$nombreDistrito" },
+                "Provincia": { $first: "$nombreProvincia" },
+                "departamento": { $first: "$nombreDepartamento" },
                 })
                 .exec(function (err, result){
                     if (err) { /* Handle error */};

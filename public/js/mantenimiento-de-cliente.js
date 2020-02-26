@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     // document.querySelector('#idProducto').value = idProducto
                     document.querySelector('#nombre_producto_busqueda').value = ''
                     M.Modal.getInstance(document.querySelector('.modal')).close()
-                    
+
                 }
             });
 
@@ -72,22 +72,39 @@ document.addEventListener('DOMContentLoaded', function(){
                     { 0 : cliente} 
                   } = await getData('./cliente?id=' + idCliente)
   
-            //console.log(producto)
-  
-            document.querySelector('#nro_doc').value = cliente.nro_doc
+            console.log(cliente)
+            
+            document.querySelector('#tipoCliente').value = cliente.tipoCliente
+            document.querySelector('#nro_doc').value = cliente._id
             document.querySelector('#nombre').value = cliente.nombre
             document.querySelector('#direccion').value = cliente.direccion
             document.querySelector('#correo').value = cliente.correo
             document.querySelector('#telefono').value = cliente.telefono
-            document.querySelector('#departamento').value = cliente.departamento.departamentoId
-            // document.querySelector('#provincia').value = cliente.color._id
-            // document.querySelector('#distrito').value = cliente.color._id
+            
+            document.querySelector('#departamento').value = cliente.ubigeo.departamentoId
+            const ev =document.querySelector('#departamento').dispatchEvent(new Event('change', {
+                'bubbles': true,
+                'cancelable': true
+            }));
+
+           
+            setTimeout(function() {
+                document.querySelector('#provincia').value = cliente.ubigeo.provinciaId    
+                document.querySelector('#provincia').dispatchEvent(new Event('change'));
+                
+            }, 1000)
+
+            setTimeout(function() {
+                document.querySelector('#distrito').value = cliente.ubigeo._id
+            }, 3000)
+            
+            
             document.querySelector('#nombres_contacto').value = cliente.nombresContacto
             document.querySelector('#correoContacto').value = cliente.correoContacto
             document.querySelector('#telefonoContacto').value = cliente.telefonoContacto
   
             document.querySelector("#registrar").disabled = true 
-            document.querySelector("#actulizar").disabled = false 
+            document.querySelector("#actualizar").disabled = false 
             document.querySelector("#eliminar").disabled = false
   
             document.querySelectorAll("input").forEach(element => {
@@ -117,19 +134,34 @@ document.addEventListener('DOMContentLoaded', function(){
             // var regex = /^.{2}$/
             // alert(document.querySelector("#nro_doc").value.search(regex))
 
+
+        
+        // Botón busqueda //
+
+        document.querySelector("#busqueda").addEventListener('click', function(){
+
+            setTimeout(function(){
+              document.querySelector('#nombre_producto_busqueda').focus()
+            }, 500)
+  
+          })
+
         // Botón nuevo //
 
         document.querySelector("#nuevo").addEventListener('click', function(){
             document.querySelector("form").reset()
-            document.querySelectorAll("input").forEach(element => {
+            document.querySelectorAll("input,select").forEach(element => {
               element.focus()
+              element.style.backgroundColor= ''
             })
 
             document.querySelector("#registrar").disabled = false 
-            document.querySelector("#actulizar").disabled = true 
+            document.querySelector("#actualizar").disabled = true 
             document.querySelector("#eliminar").disabled = true
 
             document.querySelector('#nro_doc').value = ''
+            document.querySelector(`#nro_doc`).readOnly = true
+            
             
         })
 
@@ -146,23 +178,91 @@ document.addEventListener('DOMContentLoaded', function(){
               console.log(`${key} -> ${form.get(key)}`)
             }
 
-            const respuesta = await postData("./cliente", form)
-            
-            Swal.fire({
-              icon: 'success',
-              title: 'Todo bien',
-              text: `Cliente ${respuesta.body._id} - ${respuesta.body.nombre}, registrado`
-            })
+            const val = CamposObligatoriosById('select:tipoCliente,input:nombre,input:direccion,input:correo,input:telefono,select:departamento')
 
-            document.querySelector("#registrar").disabled = true 
-            document.querySelector("#actulizar").disabled = false 
-            document.querySelector("#eliminar").disabled = false 
+            if(val){
+                
+                const respuesta = await postData("./cliente", form)
+            
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Todo bien',
+                    text: `Cliente ${respuesta.body._id} - ${respuesta.body.nombre}, registrado`
+                })
+    
+                document.querySelector("#registrar").disabled = true 
+                document.querySelector("#actualizar").disabled = false 
+                document.querySelector("#eliminar").disabled = false 
+
+                ListarCliente()
+                
+
+            }else{
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Algo salió mal',
+                    text: `Datos de registro, invalidos`
+                })
+                
+            }
+
+        
+    
+        });
+
+
+
+        // Botón actualizar //
+
+      
+  
+        document.querySelector(`#actualizar`).addEventListener("click", async function(e){
+            
+            const form = new FormData($data)
+
+            for (const key of form.keys()) {            
+              console.log(`${key} -> ${form.get(key)}`)
+            }
+
+            const val = CamposObligatoriosById('select:tipoCliente,input:nombre,input:direccion,input:correo,input:telefono,select:departamento')
+
+            if(val){
+                
+                const respuesta = await patchData("./cliente/" + document.querySelector('#nro_doc').value, form)
+            
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Todo bien',
+                    text: `Cliente ${respuesta.body._id} - ${respuesta.body.nombre}, modificado`
+                })
+    
+                document.querySelector("#registrar").disabled = true 
+                document.querySelector("#actualizar").disabled = false 
+                document.querySelector("#eliminar").disabled = false 
+
+                ListarCliente()
+                
+
+            }else{
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Algo salió mal',
+                    text: `Datos de registro, invalidos`
+                })
+                
+            }
+
             
             //console.log(respuesta)
             //ListarProductos()
     
         });
 
+
+
+        
 
 
 
@@ -211,6 +311,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
         document.querySelector(`#tipoCliente`).addEventListener('change', function(e) {
+            document.querySelector(`#nro_doc`).readOnly = false
             document.querySelector(`#nro_doc`).select()
             document.querySelector(`#nro_doc`).removeAttribute("class")
         })
@@ -234,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function(){
             document.querySelector(`#distrito`).innerHTML = `<option value="" disabled="" selected="">Seleccione distrito</option>`
 
             lista.forEach(element => {
-                document.querySelector(`#distrito`).innerHTML = document.querySelector(`#distrito`).innerHTML + `<option value="${element._id}">${element.nombre}</option>`
+                document.querySelector(`#distrito`).innerHTML = document.querySelector(`#distrito`).innerHTML + `<option value="${element._id}">${element.Distrito}</option>`
             });
 
 
@@ -248,9 +349,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
         ListarCliente()
 
+        LongMax('telefono',9)
+
+        document.querySelector(`#nro_doc`).readOnly = true
         
         document.querySelector("#registrar").disabled = false 
-        document.querySelector("#actulizar").disabled = true 
+        document.querySelector("#actualizar").disabled = true 
         document.querySelector("#eliminar").disabled = true
 
     })()

@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         })
 
+        // Botón busqueda //
 
         document.querySelector("#busqueda").addEventListener('click', function(){
 

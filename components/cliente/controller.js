@@ -17,7 +17,7 @@ function addCliente(cliente){
 
   return new Promise(async function(resolver, rechazar){
 
-    const {nro_doc, nombre, direccion, correo, telefono, departamento, provincia, distrito , nombres_contacto , correoContacto, telefonoContacto} = cliente
+    const {nro_doc, tipoCliente, nombre, direccion, correo, telefono, distrito, nombres_contacto , correoContacto, telefonoContacto} = cliente
     
     if(nro_doc==''){
       rechazar('No existe datos')
@@ -28,15 +28,14 @@ function addCliente(cliente){
     
     const nuevoCliente = {
         _id: nro_doc,
-        nombre: nombre ,
-        direccion: direccion,
-        correo: correo,
+        tipoCliente: tipoCliente,
+        nombre: nombre.toUpperCase() ,
+        direccion: direccion.toUpperCase(),
+        correo: correo.toUpperCase(),
         telefono: telefono,
-        departamento: departamento,
-        provincia: provincia,
-        distrito: distrito ,
-        nombresContacto: nombres_contacto,
-        correoContacto: correoContacto,
+        ubigeo: distrito,
+        nombresContacto: nombres_contacto.toUpperCase(),
+        correoContacto: correoContacto.toUpperCase(),
         telefonoContacto: telefonoContacto,
         fecha_registro: config.DATE
     }
@@ -48,16 +47,16 @@ function addCliente(cliente){
   
 }
 
-function updateProducto(id, datos_producto){
+function updateProducto(id, datos_cliente){
 
   return new Promise(function(resolver, rechazar){
 
     if(!id){
-      rechazar('Datos invalidos')
+      rechazar('Datos invalido')
       return false
     }
 
-    resolver(store.update(id, datos_producto))
+    resolver(store.update(id, datos_cliente))
 
   })
 
