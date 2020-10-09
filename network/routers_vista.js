@@ -32,8 +32,8 @@ const routers = function (server) {
         res.render('modulo-de-pedidos-y-ventas', { script_name: 'modulo-de-ventas-y-pedido' })
     })
 
-    router.get('/registrar-pedido', function (req, res) {
-        res.render('registrar-pedido', { script_name: 'registrar-pedido' })
+    router.get('/registrar-pedido', function(req, res){
+        res.render('registrar-pedido', {script_name: 'registrar-pedido'})
     })
 
     router.get('/registrar-producto', function (req, res) {

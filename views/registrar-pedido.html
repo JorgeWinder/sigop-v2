@@ -307,60 +307,63 @@
         <h5>Detalle de pedido</h5>
         <div class='divider black'></div>
 
-        <table class="highlight" id="detalle">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th width='450'>PRODUCTO</th>
-                    <th width='60'>CANTIDAD</th>
-                    <th width='100'>P.UNIT</th>
-                    <th width='100'>P.TOTAL</th>
-                    <th>DESCUENTO</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="text" id="nompro" name="nompro" value="">
-                            <input type="hidden" id="idProducto" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="number" id="cantidad" name="cantidad" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="input-field input-field-select">
-                            <select id="empresa" name="empresa" class="browser-default">
-                                <option value="" disabled="" selected="">--</option>
-                                <option value="" selected="true">122 PU</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="number" id="total" name="total" step="0.01" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="number" id="desc" name="desc" step="0.01" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <button class="btn-small waves-effect red lighten-2" type="button" name="action" value="1"
-                            id="eliminar-1"> Eliminar
-                            <i class=" material-icons left">delete</i>
-                        </button>
-                    </td>
+        <<<<<<< HEAD <table class="highlight" id="detalle">
+            =======
+            <table id="detalle" class="highlight">
+                >>>>>>> bc86b48784125bb11ab62027b12f92b1e2f165c8
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th width='450'>PRODUCTO</th>
+                        <th width='60'>CANTIDAD</th>
+                        <th width='100'>P.UNIT</th>
+                        <th width='100'>P.TOTAL</th>
+                        <th>DESCUENTO</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="text" id="nompro" name="nompro" value="">
+                                <input type="hidden" id="idProducto" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="number" id="cantidad" name="cantidad" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-field input-field-select">
+                                <select id="empresa" name="empresa" class="browser-default">
+                                    <option value="" disabled="" selected="">--</option>
+                                    <option value="" selected="true">122 PU</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="number" id="total" name="total" step="0.01" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="number" id="desc" name="desc" step="0.01" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn-small waves-effect red lighten-2" type="button" name="action" value="1"
+                                id="eliminar-1"> Eliminar
+                                <i class=" material-icons left">delete</i>
+                            </button>
+                        </td>
 
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                </tbody>
+            </table>
 
 
     </div>
