@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     </td>
                     <td>
-                        <button class="btn-small waves-effect red lighten-2" type="submit" name="action"> Eliminar
+                        <button class="btn-small waves-effect red lighten-2" type="button" name="action" 
+                        value="${count}"
+                        id="eliminar-${count}"> Eliminar
                             <i class="material-icons left">delete</i>
                         </button>
                     </td>
@@ -49,6 +51,10 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector("#detalle tbody").innerHTML = content + nuevaFila
         })
 
+
+        document.querySelector("#eliminar").addEventListener('click', function (e) {
+            console.log(e.target.value)
+        })
 
 
     })()
