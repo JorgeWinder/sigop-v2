@@ -33,7 +33,7 @@ const routers = function(server){
     })
 
     router.get('/registrar-pedido', function(req, res){
-        res.render('registrar-pedido')
+        res.render('registrar-pedido', {script_name: 'registrar-pedido'})
     })
 
     router.get('/registrar-producto', function(req, res){
