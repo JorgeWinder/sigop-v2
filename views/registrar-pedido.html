@@ -21,7 +21,7 @@
                     style=" width: 100%; margin-top: 10px; padding: 0 0px 0 0px;">Buscar cliente
                 </a>
             </div>
-            <!-- Modal Nuevo Cliente -->
+            <!-- Modal Buscar Cliente -->
             <div id="modal1" class="modal" style="width: 60%">
                 <div class="modal-content">
                     <h4>Buscar Cliente</h4>
@@ -33,6 +33,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class='input-field col s6 l2' style="padding-right: 0px; padding-left: 0px">
                 <a class="btn-flat red-text modal-trigger" href="#modal2" id="modal-client"
                     style=" width: 100%; margin-top: 10px; padding: 0 0px 0 0px;">Nuevo cliente
@@ -255,76 +257,111 @@
                 <label style="padding-top: 5px;">Empresa responsable del pedido</label>
             </div>
 
-            <div class='col s12 l12 right-align'>
+        </div>
+        <div clas="row">
+            <div class='col s6 l6' id="despacho-domicilio">
                 <label>
-                    <input type="checkbox" class="filled-in" />
+                    <input type="checkbox" class="filled-in modal-trigger" data-target="modal1"/>
                     <span>DESPACHO A DOMICILIO</span>
                 </label>
             </div>
-
-
+            <div class='input-field col s6 l6'>
+                <input type="text" id="estado" name="estado" value="">
+                <label for="estado">Estado de pedido</label>
+            </div>
+        </div>
+        <!-- Modal Despacho a Domicilio -->
+        <div id="modal1" class="modal" style="width: 60%">
+            <div class="modal-content">
+                <h4>Despacho a Domicilio</h4>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="encargado" name="encargado" value="">
+                        <label for="encargado">Nombre de encargado de endtega</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="recibe" name="recibe" value="">
+                        <label for="recibe">¿Quién recibirá el producto?</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="direccion" name="direccion" value="">
+                        <label for="direccion">Direccion y/o destino de entrage</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <button class="btn-large waves-effect orange" type="submit" name="action"> Grabar datos
+                        para entrega
+                    </button>
+                </div>
+            </div>
         </div>
 
     </div>
 
-    <div class='section' style='margin-top: -50px;'>
+    <div class='section' style='margin-top: -40px;'>
 
         <h5>Detalle de pedido</h5>
         <div class='divider black'></div>
 
-        <table id="detalle" class="highlight">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th width='450'>PRODUCTO</th>
-                    <th width='60'>CANTIDAD</th>
-                    <th width='100'>P.UNIT</th>
-                    <th width='100'>P.TOTAL</th>
-                    <th>DESCUENTO</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="text" id="nompro" name="nompro" value="">
-                            <input type="hidden" id="idProducto" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="number" id="cantidad" name="cantidad" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="input-field input-field-select">
-                            <select id="empresa" name="empresa" class="browser-default">
-                                <option value="" disabled="" selected="">--</option>
-                                <option value="" selected="true">122 PU</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="number" id="total" name="total" step="0.01" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <div class='input-field' style='margin-right: 10px;'>
-                            <input type="number" id="desc" name="desc" step="0.01" value="">
-                        </div>
-                    </td>
-                    <td>
-                        <button class="btn-small waves-effect red lighten-2" type="submit" name="action"> Eliminar
-                            <i class="material-icons left">delete</i>
-                        </button>
-                    </td>
+            <table id="detalle" class="highlight">
 
-                </tr>
-            </tbody>
-        </table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th width='450'>PRODUCTO</th>
+                        <th width='60'>CANTIDAD</th>
+                        <th width='100'>P.UNIT</th>
+                        <th width='100'>P.TOTAL</th>
+                        <th>DESCUENTO</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="text" id="nompro" name="nompro" value="">
+                                <input type="hidden" id="idProducto" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="number" id="cantidad" name="cantidad" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-field input-field-select">
+                                <select id="empresa" name="empresa" class="browser-default">
+                                    <option value="" disabled="" selected="">--</option>
+                                    <option value="" selected="true">122 PU</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="number" id="total" name="total" step="0.01" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <div class='input-field' style='margin-right: 10px;'>
+                                <input type="number" id="desc" name="desc" step="0.01" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn-small waves-effect red lighten-2" type="button" name="action" value="1"
+                                id="eliminar"> Eliminar
+                                <i class=" material-icons left">delete</i>
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
 
 
     </div>
@@ -335,7 +372,7 @@
 </div>
 
 
-<div id="btnAgregarProducto" class="fixed-action-btn" style="bottom: 45px;">
+<div class="fixed-action-btn" style="bottom: 45px;" id="agregar-producto">
     <a class="btn-floating btn-large waves-effect tooltipped red" data-position="left"
         data-tooltip="Agregar producto a pedido">
         <i class="material-icons">add</i>
