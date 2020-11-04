@@ -1,242 +1,247 @@
 <div class='container'>
 
     <div class='section'></div>
+    <div class="row" >
+        <h4 class="col s12 m6 ">Registar pedido</h4>
 
-    <h4>Registar pedido</h4>
+    
+        <div class='input-field col s12 m6 l2' >
+            <a class="btn-flat red-text modal-trigger" href="#modal1" id="modal-search-client"
+            style=" margin-top: 10px; padding: 0;">Buscar cliente
+            <i class="material-icons left" style="margin-right: 2px">search</i>
+            </a>
+        </div>
+        <!-- Modal Buscar Cliente -->
+        <div id="modal1" class="modal" style="width: 60%,">
+            <div class="modal-content">
+                <h4>Buscar Cliente</h4>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="search-number" name="search-number" value="">
+                        <label for="search-number">Nombre de cliente o numero de documento</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='input-field col s12 m6 l2'>
+            <a class="btn-flat red-text modal-trigger" href="#modal2" id="modal-client"
+            style=" margin-top: 10px; padding: 0;">Nuevo cliente
+                <i class="material-icons left" style="margin-right: 2px">add_box</i>
+            </a>
+        </div>
+
+        <!-- Modal Nuevo Cliente -->
+        <div id="modal2" class="modal" style="width: 60%">
+            <div class="modal-content">
+                <h4>Nuevo Cliente</h4>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="number" id="ruc-dni" name="ruc-dni" value="">
+                        <label for="ruc-dni">RUC/DNI</label>
+                    </div>
+                </div>
+                <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
+                    <select id="tipo-cliente" name="tipo-cliente" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione el tipo de cliente</option>
+                        <option value="" selected="true">Empresa</option>
+                        <option value="" selected="true">Persona Natural</option>
+                    </select>
+                    <label style="padding-top: 5px;">Tipo de cliente</label>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="direccion" name="direccion" value="">
+                        <label for="ruc-dni">Direccion</label>
+                    </div>
+                </div>
+                <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
+                    <select id="provincia" name="provincia" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione provincia</option>
+                        <option value="" selected="true">Lima</option>
+                        <option value="" selected="true">Callao</option>
+                    </select>
+                    <label style="padding-top: 5px;">Provincia</label>
+                </div>
+                <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
+                    <select id="distrito" name="distrito" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione distrito</option>
+                        <option value="" selected="true">Lima</option>
+                        <option value="" selected="true">Cercado de lima</option>
+                    </select>
+                    <label style="padding-top: 5px;">Pueblo libre</label>
+                </div>
+                <div class="row">
+                    <div class="col l12">
+                        <h6>Datos de contacto y entrega</h6>
+                        <hr>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="nombre-contacto" name="nombre-contacto" value="">
+                        <label for="nombre-contacto">Nombres y apellidos de contacto</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="correo" name="correo" value="">
+                        <label for="correo">Correo</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="telefono" name="telefono" value="">
+                        <label for="telefono">Teléfono</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="direccion-entrega" name="direccion-entrega" value="">
+                        <label for="direccion-entrega">Dirección entrega</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="empresa-transporte" name="empresa-transporte" value="">
+                        <label for="empresa-transporte">Empresa medio de transporte</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="apuntes" name="apuntes" value="">
+                        <label for="apuntes">Otros apuntes</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <a href="#!" class="btn modal-close waves-effect waves-red ">Limpiar Cliente</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat green">Registrar Cliente</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat yellow">Modificar cliente</a>
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat red">Eliminar Cliente</a>
+            </div>
+        </div>
+
+        <div class='input-field col s12 m6 l2' style="padding-right: 0px">
+            <a class="btn-flat red-text modal-trigger" name="action"
+            style="  margin-top: 10px; padding: 0;" href="#modal3" id="modal-data-client">Datos de cliente
+                <i class="material-icons left" style="margin-right: 2px">remove_red_eye</i>
+            </a>
+        </div>
+        <!-- Modal Datos Cliente -->
+        <div id="modal3" class="modal" style="width: 60%">
+            <div class="modal-content">
+                <h4>Datos de Cliente</h4>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="number" id="ruc-dni" name="ruc-dni" value="">
+                        <label for="ruc-dni">RUC/DNI</label>
+                    </div>
+                </div>
+                <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
+                    <select id="tipo-cliente" name="tipo-cliente" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione el tipo de cliente</option>
+                        <option value="" selected="true">Empresa</option>
+                        <option value="" selected="true">Persona Natural</option>
+                    </select>
+                    <label style="padding-top: 5px;">Tipo de cliente</label>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="razon-social" name="razon-social" value="">
+                        <label for="razon-social">Razón Social/ Nombres</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="direccion" name="direccion" value="">
+                        <label for="ruc-dni">Direccion</label>
+                    </div>
+                </div>
+                <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
+                    <select id="provincia" name="provincia" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione provincia</option>
+                        <option value="" selected="true">Lima</option>
+                        <option value="" selected="true">Callao</option>
+                    </select>
+                    <label style="padding-top: 5px;">Provincia</label>
+                </div>
+                <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
+                    <select id="distrito" name="distrito" class="browser-default">
+                        <option value="" disabled="" selected="">Seleccione distrito</option>
+                        <option value="" selected="true">Lima</option>
+                        <option value="" selected="true">Cercado de lima</option>
+                    </select>
+                    <label style="padding-top: 5px;">Pueblo libre</label>
+                </div>
+                <div class="row">
+                    <div class="col l12">
+                        <h6>Datos de contacto y entrega</h6>
+                        <hr>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="nombre-contacto" name="nombre-contacto" value="">
+                        <label for="nombre-contacto">Nombres y apellidos de contacto</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="correo" name="correo" value="">
+                        <label for="correo">Correo</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="telefono" name="telefono" value="">
+                        <label for="telefono">Teléfono</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="direccion-entrega" name="direccion-entrega" value="">
+                        <label for="direccion-entrega">Dirección entrega</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="empresa-transporte" name="empresa-transporte" value="">
+                        <label for="empresa-transporte">Empresa medio de transporte</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12 l12'>
+                        <input type="text" id="apuntes" name="apuntes" value="">
+                        <label for="apuntes">Otros apuntes</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  
     <div class='divider black'></div>
 
-    <div >
+    <div class="row" style="margin-bottom: 0;" >
         <div class='row' style="margin: 0;">
             <div class='input-field col s12 l3'>    
                 <input type="number" id="idPedido" name="idPedido" value="" readonly>
                 <label for="idPedido">Código de pedido</label>
             </div>
-            <div class='input-field col s12 l3'>
+            <div class='input-field col s12 l9'>
                 <input type="text" id="cliente" name="cliente" value="">
                 <label for="cliente">Cliente</label>
                 <input type="hidden" name="idcliente" id='idcliente'>
             </div>
-            <div class='input-field col s6 l2' >
-                <a class="btn-flat red-text modal-trigger" href="#modal1" id="modal-search-client"
-                    style=" width: 100%; margin-top: 10px; padding: 0;">Buscar cliente
-                </a>
-            </div>
-            <!-- Modal Buscar Cliente -->
-            <div id="modal1" class="modal" style="width: 60%">
-                <div class="modal-content">
-                    <h4>Buscar Cliente</h4>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="search-number" name="search-number" value="">
-                            <label for="search-number">Nombre de cliente o numero de documento</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class='input-field col s6 l2' style="padding-right: 0px; ">
-                <a class="btn-flat red-text modal-trigger" href="#modal2" id="modal-client"
-                    style=" width: 100%; margin-top: 10px; padding: 0 ;">Nuevo cliente
-                    <i class="material-icons left" style="margin-right: 2px">add_box</i>
-                </a>
-            </div>
-
-            <!-- Modal Nuevo Cliente -->
-            <div id="modal2" class="modal" style="width: 60%">
-                <div class="modal-content">
-                    <h4>Nuevo Cliente</h4>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="number" id="ruc-dni" name="ruc-dni" value="">
-                            <label for="ruc-dni">RUC/DNI</label>
-                        </div>
-                    </div>
-                    <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
-                        <select id="tipo-cliente" name="tipo-cliente" class="browser-default">
-                            <option value="" disabled="" selected="">Seleccione el tipo de cliente</option>
-                            <option value="" selected="true">Empresa</option>
-                            <option value="" selected="true">Persona Natural</option>
-                        </select>
-                        <label style="padding-top: 5px;">Tipo de cliente</label>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="direccion" name="direccion" value="">
-                            <label for="ruc-dni">Direccion</label>
-                        </div>
-                    </div>
-                    <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
-                        <select id="provincia" name="provincia" class="browser-default">
-                            <option value="" disabled="" selected="">Seleccione provincia</option>
-                            <option value="" selected="true">Lima</option>
-                            <option value="" selected="true">Callao</option>
-                        </select>
-                        <label style="padding-top: 5px;">Provincia</label>
-                    </div>
-                    <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
-                        <select id="distrito" name="distrito" class="browser-default">
-                            <option value="" disabled="" selected="">Seleccione distrito</option>
-                            <option value="" selected="true">Lima</option>
-                            <option value="" selected="true">Cercado de lima</option>
-                        </select>
-                        <label style="padding-top: 5px;">Pueblo libre</label>
-                    </div>
-                    <div class="row">
-                        <div class="col l12">
-                            <h6>Datos de contacto y entrega</h6>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="nombre-contacto" name="nombre-contacto" value="">
-                            <label for="nombre-contacto">Nombres y apellidos de contacto</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="correo" name="correo" value="">
-                            <label for="correo">Correo</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="telefono" name="telefono" value="">
-                            <label for="telefono">Teléfono</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="direccion-entrega" name="direccion-entrega" value="">
-                            <label for="direccion-entrega">Dirección entrega</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="empresa-transporte" name="empresa-transporte" value="">
-                            <label for="empresa-transporte">Empresa medio de transporte</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="apuntes" name="apuntes" value="">
-                            <label for="apuntes">Otros apuntes</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer" style="text-align: center;">
-                    <a href="#!" class="btn modal-close waves-effect waves-red ">Limpiar Cliente</a>
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat green">Registrar Cliente</a>
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat yellow">Modificar cliente</a>
-                    <a href="#!" class="modal-close waves-effect waves-red btn-flat red">Eliminar Cliente</a>
-                </div>
-            </div>
-
-            <div class='input-field col s6 l2' style="padding-right: 0px">
-                <a class="btn-flat red-text modal-trigger" name="action"
-                    style="width: 100%; margin-top: 10px; padding:0px;" href="#modal3" id="modal-data-client">Datos
-                    de
-                    cliente
-                    <i class="material-icons left" style="margin-right: 2px">remove_red_eye</i>
-                </a>
-            </div>
-            <!-- Modal Datos Cliente -->
-            <div id="modal3" class="modal" style="width: 60%">
-                <div class="modal-content">
-                    <h4>Datos de Cliente</h4>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="number" id="ruc-dni" name="ruc-dni" value="">
-                            <label for="ruc-dni">RUC/DNI</label>
-                        </div>
-                    </div>
-                    <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
-                        <select id="tipo-cliente" name="tipo-cliente" class="browser-default">
-                            <option value="" disabled="" selected="">Seleccione el tipo de cliente</option>
-                            <option value="" selected="true">Empresa</option>
-                            <option value="" selected="true">Persona Natural</option>
-                        </select>
-                        <label style="padding-top: 5px;">Tipo de cliente</label>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="razon-social" name="razon-social" value="">
-                            <label for="razon-social">Razón Social/ Nombres</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="direccion" name="direccion" value="">
-                            <label for="ruc-dni">Direccion</label>
-                        </div>
-                    </div>
-                    <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
-                        <select id="provincia" name="provincia" class="browser-default">
-                            <option value="" disabled="" selected="">Seleccione provincia</option>
-                            <option value="" selected="true">Lima</option>
-                            <option value="" selected="true">Callao</option>
-                        </select>
-                        <label style="padding-top: 5px;">Provincia</label>
-                    </div>
-                    <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
-                        <select id="distrito" name="distrito" class="browser-default">
-                            <option value="" disabled="" selected="">Seleccione distrito</option>
-                            <option value="" selected="true">Lima</option>
-                            <option value="" selected="true">Cercado de lima</option>
-                        </select>
-                        <label style="padding-top: 5px;">Pueblo libre</label>
-                    </div>
-                    <div class="row">
-                        <div class="col l12">
-                            <h6>Datos de contacto y entrega</h6>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="nombre-contacto" name="nombre-contacto" value="">
-                            <label for="nombre-contacto">Nombres y apellidos de contacto</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="correo" name="correo" value="">
-                            <label for="correo">Correo</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="telefono" name="telefono" value="">
-                            <label for="telefono">Teléfono</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="direccion-entrega" name="direccion-entrega" value="">
-                            <label for="direccion-entrega">Dirección entrega</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="empresa-transporte" name="empresa-transporte" value="">
-                            <label for="empresa-transporte">Empresa medio de transporte</label>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='input-field col s12 l12'>
-                            <input type="text" id="apuntes" name="apuntes" value="">
-                            <label for="apuntes">Otros apuntes</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
         </div>
 
         <div class='row' style="margin-bottom: 0;">
             <div class='input-field col s12 l3'>
-                <input type="number" id="tienda" name="tienda" value="" readonly>
+                <input type="number" id="tienda" name="tienda" value="" >
                 <label for="tienda">Tienda</label>
                 <input type="hidden" id="idtienda" value="1">
             </div>
@@ -249,7 +254,7 @@
                 <label style="padding-top:20px;" for="fechaentrega">Fecha entrega</label>
             </div>
 
-            <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
+            <div class="input-field input-field-select col s12 l12" style="padding-top: 5px; padding-right: 0;">
                 <select id="empresa" name="empresa" class="browser-default">
                     <option value="" disabled="" selected="">Seleccione empresa</option>
                     <option value="" selected="true">SHANDONG TIANXIN TRADING COMPANY S.A.C.</option>
@@ -259,7 +264,7 @@
 
         </div>
         <div class="row valign-wrapper">
-            <div class='col s6 l6 modal-trigger' id="despacho-domicilio" data-target="modal4" style="margin-left: 2px;">
+            <div class='col s6 l4 modal-trigger' id="despacho-domicilio" data-target="modal4" style="margin-left: 2px;">
                 <label>
                     <input type="checkbox" class="filled-in" />
                     <span>DESPACHO A DOMICILIO</span>
@@ -373,7 +378,7 @@
 </div>
 
 
-<div class="fixed-action-btn" style="bottom: 45px;" id="agregar-producto">
+<div class="fixed-action-btn" style="bottom: 35px; right: 4em;" id="agregar-producto">
     <a class="btn-floating btn-large waves-effect tooltipped red" data-position="left"
         data-tooltip="Agregar producto a pedido">
         <i class="material-icons">add</i>
