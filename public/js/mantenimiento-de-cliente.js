@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         async function ListarCliente(){
-
+ 
 
             let objdata = new Object()
 

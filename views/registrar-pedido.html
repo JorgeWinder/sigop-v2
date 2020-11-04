@@ -5,9 +5,9 @@
     <h4>Registar pedido</h4>
     <div class='divider black'></div>
 
-    <div class='section'>
-        <div class='row'>
-            <div class='input-field col s12 l3'>
+    <div >
+        <div class='row' style="margin: 0;">
+            <div class='input-field col s12 l3'>    
                 <input type="number" id="idPedido" name="idPedido" value="" readonly>
                 <label for="idPedido">Código de pedido</label>
             </div>
@@ -16,9 +16,9 @@
                 <label for="cliente">Cliente</label>
                 <input type="hidden" name="idcliente" id='idcliente'>
             </div>
-            <div class='input-field col s6 l2' style="padding-right: 0px">
+            <div class='input-field col s6 l2' >
                 <a class="btn-flat red-text modal-trigger" href="#modal1" id="modal-search-client"
-                    style=" width: 100%; margin-top: 10px; padding: 0 0px 0 0px;">Buscar cliente
+                    style=" width: 100%; margin-top: 10px; padding: 0;">Buscar cliente
                 </a>
             </div>
             <!-- Modal Buscar Cliente -->
@@ -35,9 +35,9 @@
             </div>
 
 
-            <div class='input-field col s6 l2' style="padding-right: 0px; padding-left: 0px">
+            <div class='input-field col s6 l2' style="padding-right: 0px; ">
                 <a class="btn-flat red-text modal-trigger" href="#modal2" id="modal-client"
-                    style=" width: 100%; margin-top: 10px; padding: 0 0px 0 0px;">Nuevo cliente
+                    style=" width: 100%; margin-top: 10px; padding: 0 ;">Nuevo cliente
                     <i class="material-icons left" style="margin-right: 2px">add_box</i>
                 </a>
             </div>
@@ -133,12 +133,12 @@
                 </div>
             </div>
 
-            <div class='input-field col s6 l2' style="padding-right: 0px; padding-left: 0px">
+            <div class='input-field col s6 l2' style="padding-right: 0px">
                 <a class="btn-flat red-text modal-trigger" name="action"
-                    style="width: 100%; margin-top: 10px; padding: 0px;" href="#modal3" id="modal-data-client">Datos
+                    style="width: 100%; margin-top: 10px; padding:0px;" href="#modal3" id="modal-data-client">Datos
                     de
                     cliente
-                    <i class="material-icons left" style="margin-right: 0px">remove_red_eye</i>
+                    <i class="material-icons left" style="margin-right: 2px">remove_red_eye</i>
                 </a>
             </div>
             <!-- Modal Datos Cliente -->
@@ -234,7 +234,7 @@
 
         </div>
 
-        <div class='row'>
+        <div class='row' style="margin-bottom: 0;">
             <div class='input-field col s12 l3'>
                 <input type="number" id="tienda" name="tienda" value="" readonly>
                 <label for="tienda">Tienda</label>
@@ -242,11 +242,11 @@
             </div>
             <div class='input-field col s12 l5'>
                 <input type="date" id="fechapedido" name="fechapedido" value="">
-                <label for="fechapedido">Fecha pedido</label>
+                <label style="padding-top:20px;" for="fechapedido">Fecha pedido</label>
             </div>
             <div class='input-field col s12 l4'>
                 <input type="date" id="fechaentrega" name="fechaentrega" value="">
-                <label for="fechaentrega">Fecha entrega</label>
+                <label style="padding-top:20px;" for="fechaentrega">Fecha entrega</label>
             </div>
 
             <div class="input-field input-field-select col s12 l12" style="padding-top: 5px;">
@@ -258,14 +258,14 @@
             </div>
 
         </div>
-        <div clas="row">
-            <div class='col s6 l6' id="despacho-domicilio">
+        <div class="row valign-wrapper">
+            <div class='col s6 l6 modal-trigger' id="despacho-domicilio" data-target="modal4" style="margin-left: 2px;">
                 <label>
                     <input type="checkbox" class="filled-in modal-trigger" data-target="modal1"/>
                     <span>DESPACHO A DOMICILIO</span>
                 </label>
             </div>
-            <div class='input-field col s6 l6'>
+            <div class='input-field col s6 l12'>
                 <input type="text" id="estado" name="estado" value="">
                 <label for="estado">Estado de pedido</label>
             </div>
@@ -302,13 +302,14 @@
 
     </div>
 
-    <div class='section' style='margin-top: -40px;'>
+    <div class='section' style='margin-top: -40px; padding-left: 1px;'>
 
         <h5>Detalle de pedido</h5>
         <div class='divider black'></div>
 
-            <table id="detalle" class="highlight">
+         <table class="highlight" id="detalle">
 
+            <table id="detalle" class="highlight" style="margin-left:3px;">
                 <thead>
                     <tr>
                         <th>ID</th>
