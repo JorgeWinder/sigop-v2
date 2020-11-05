@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const elems = document.querySelectorAll('.modal')
         const instanceModal = M.Modal.init(elems)
 
+
+        // funciones
+    
+
+        // eventos
+
         document.querySelector("#agregar-producto").addEventListener('click', function () {
             const content = document.querySelector("#detalle tbody").innerHTML
 
@@ -42,20 +48,33 @@ document.addEventListener('DOMContentLoaded', function () {
                     </td>
                     <td>
                         <button class="btn-small waves-effect red lighten-2" type="button" name="action" 
-                        value="${count}"
-                        id="eliminar-${count}"> Eliminar
+                        id="eliminar"> Eliminar
                             <i class="material-icons left">delete</i>
                         </button>
                     </td>
             `
             document.querySelector("#detalle tbody").innerHTML = content + nuevaFila
+
+            // Remover fila
+
+            document.querySelectorAll("#eliminar").forEach(element => {
+                element.addEventListener('click', function (e) {                    
+                    this.parentNode.parentNode.remove()
+                    const id = this.parentNode.parentNode.querySelectorAll("td")[0].innerText
+                    alert("Número de fila eliminada: " + id)
+                })
+            });
+
+            // Re-calcular Id
+
+          
+
+
+
         })
 
 
-        document.querySelector("#eliminar").addEventListener('click', function (e) {
-            console.log(e.target.value)
-        })
-
+        
 
     })()
 })
