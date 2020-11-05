@@ -22,19 +22,27 @@
                 </a>
             </div>
             <!-- Modal Buscar Cliente -->
-            <div id="modal1" class="modal" style="width: 60%">
+
+            <div id="modal1" class="modal modal-fixed-footer">
                 <div class="modal-content">
-                    <h4>Buscar Cliente</h4>
-                    <div class='row'>
+                    <h5>BÚSQUEDA DE CLIENTE</h5>
+                    <div class="row">
                         <div class='input-field col s12 l12'>
-                            <input type="text" id="search-number" name="search-number" value="">
-                            <label for="search-number">Nombre de cliente o numero de documento</label>
+                            <input type="text" id="search-cliente" class="autocomplete" value="">
+                            <!-- <label for="nombre_producto_busqueda">Nombre de producto</label> -->
+                            <span class="helper-text green-text" data-error="wrong" data-success="right"><span style="font-size: 20px;">⌨</span> Escriba un nombre, selecione un cliente y presione tecla [ENTER] para iniciar búsqueda</span>
+                            <input type="hidden" name="" id=''>
                         </div>
+        
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="modal-close waves-effect waves-red btn-flat"><i class="material-icons right">close</i>Cerrar</a>
                 </div>
             </div>
 
 
+            
             <div class='input-field col s6 l2' style="padding-right: 0px; ">
                 <a class="btn-flat red-text modal-trigger" href="#modal2" id="modal-client"
                     style=" width: 100%; margin-top: 10px; padding: 0 ;">Nuevo cliente
