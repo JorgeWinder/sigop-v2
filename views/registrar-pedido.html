@@ -29,7 +29,7 @@
 
         <div class='input-field col s3  l3' >
             <a class="btn-flat red-text modal-trigger " href="#modal2" id="modal-client"
-                style=" margin-top: 10px; padding: 0;"><i class="material-icons left" style="margin-right: 2px;">add_box</i>Buscar cliente   
+                style=" margin-top: 10px; padding: 0;"><i class="material-icons left" style="margin-right: 2px;">add_box</i>Nuevo cliente   
             </a>
         </div>
         
@@ -127,7 +127,7 @@
 
         <div class='input-field col s3 l3 '>
             <a class="btn-flat red-text modal-trigger " href="#modal3" id="modal-data-client"
-                style="  margin-top: 10px; padding: 0;"><i class="material-icons left" style="margin-right: 2px;">remove_red_eye</i>Buscar cliente
+                style="  margin-top: 10px; padding: 0;"><i class="material-icons left" style="margin-right: 2px;">remove_red_eye</i>Datos de cliente
             </a>
         </div>
 
@@ -224,7 +224,7 @@
 
     </div>
     <h4 style="margin-top: 0;">Registar pedido</h4>
-    
+
     <div class='divider black'></div>
 
     <div >
@@ -266,13 +266,13 @@
 
         </div>
         <div class="row valign-wrapper">
-            <div class='col s6 l6 modal-trigger' id="despacho-domicilio" data-target="modal4" style="margin-left: 2px;">
+            <div class='col s6 l4 modal-trigger' id="despacho-domicilio" data-target="modal4" style="margin-left: 2px;">
                 <label>
                     <input type="checkbox" class="filled-in modal-trigger" data-target="modal1"/>
                     <span>DESPACHO A DOMICILIO</span>
                 </label>
-            </div>
-            <div class='input-field col s6 l12'>
+            </div>  
+            <div class='input-field col s6 l8'>
                 <input type="text" id="estado" name="estado" value="">
                 <label for="estado">Estado de pedido</label>
             </div>
@@ -309,14 +309,12 @@
 
     </div>
 
-    <div class='section' style='margin-top: -40px; padding-left: 1px;'>
+    <div class='section'  id='wrapper' style='margin-top: -40px; padding-left: 1px;'>
 
         <h5>Detalle de pedido</h5>
         <div class='divider black'></div>
 
-         <table class="highlight" id="detalle">
-
-            <table id="detalle" class="highlight" style="margin-left:3px;">
+            <table id="main-table"class="highlight" style="margin-left:3px;">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -343,25 +341,18 @@
                             </div>
                         </td>
                         <td>
-                            <!-- <div class="input-field input-field-select">
-                                <select id="precio" name="precio" class="browser-default">
-                                    <option value="" disabled="" selected="">--</option>
-                                    <option  value="" selected="true">122 PU</option>
-                                </select>
-                            </div> -->
                             <div class='input-field' style='margin-right: 10px;'>
-                                <input type="number" id="precio" name="precio" value="" class="autocomplete">
-                                <!-- <input type="hidden" id="idPrecio" value=""> -->
+                                <input type="number" id="precio" name="precio"  step='0.01' value='0.00' class="autocomplete">
                             </div>
                         </td>
                         <td>
                             <div class='input-field' style='margin-right: 10px;'>
-                                <input type="number" id="total" name="total" step="0.01" value="">
+                                <input type="number" id="precioTotal" name="total" step="0.01" value="">
                             </div>
                         </td>
                         <td>
                             <div class='input-field' style='margin-right: 10px;'>
-                                <input type="number" id="desc" name="desc" step="0.01" value="">
+                                <input type="number" id="descuento" name="descuento" step="0.01" value="">
                             </div>
                         </td>
                         <td>
@@ -375,6 +366,7 @@
                 </tbody>
             </table>
 
+            
 
     </div>
 
